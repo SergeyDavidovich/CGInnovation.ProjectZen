@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29020.237
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGInnovation.ProjectZen.Domain", "src\CGInnovation.ProjectZen.Domain\CGInnovation.ProjectZen.Domain.csproj", "{554AD327-6DBA-4F8F-96F8-81CE7A0C863F}"
 EndProject
@@ -36,6 +36,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGInnovation.ProjectZen.HttpApi.Host", "src\CGInnovation.ProjectZen.HttpApi.Host\CGInnovation.ProjectZen.HttpApi.Host.csproj", "{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGInnovation.ProjectZen.Blazor", "src\CGInnovation.ProjectZen.Blazor\CGInnovation.ProjectZen.Blazor.csproj", "{27B2DDC7-8B75-4322-A312-25419C15D9D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0A36AD06-1640-4B0D-9DB2-6A57C98C8C22}"
+	ProjectSection(SolutionItems) = preProject
+		docs\DomainObjects.vsdx = docs\DomainObjects.vsdx
+		docs\Zen.Project Essentials.docx = docs\Zen.Project Essentials.docx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
