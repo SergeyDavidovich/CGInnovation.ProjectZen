@@ -19,7 +19,7 @@ namespace CGInnovation.ProjectZen.Risks
 
         public Guid? TenantId { get; private set; }
 
-        protected Risk()
+        public Risk()
         {
             //This parameterless constructor is needed for ORMs
         }
