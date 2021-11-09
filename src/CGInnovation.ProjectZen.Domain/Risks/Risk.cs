@@ -1,27 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+//using Volo.Abp.Domain.Entities;
+using Volo.Abp.MultiTenancy;
 
 using Volo.Abp.Domain.Entities.Auditing;
 
 namespace CGInnovation.ProjectZen.Risks
 {
-    public class Risk : AuditedAggregateRoot<Guid> // Type of the primary key of the Risk
+    public class Risk : AuditedAggregateRoot<Guid>, IMultiTenant // Type of the primary key of the Risk
     {
-        public Guid Id { get; set; }
-        public DateTime CtreateDate { get; set; }
-        public DateTime UpdateDate { get; set; }
-        public string CreatedBy { get; set; }
-        public string UpdatedBy { get; set; }
-        public Mitigation Mitigation { get; set; }
-        public string MitigationDescription { get; set; }
         public bool Occures { get; set; }
         public DateTime OccuredDate { get; set; }
+        public Mitigation Mitigation { get; set; }
+        public string MitigationDescription { get; set; }
+
+        public Guid? TenantId { get; private set; }
+
+        protected Risk()
+        {
+            //This parameterless constructor is needed for ORMs
+        }
+
+        public Risk(
+            bool occures,
+            DateTime occuredDate,
+            Mitigation mitigation,
+            string mitigationDescription,
+            Guid? tenantId)
+        {
+            Occures = occures;
+            OccuredDate = occuredDate;
+            Mitigation = mitigation;
+            MitigationDescription = mitigationDescription;
+            TenantId = tenantId; //Set in the constructor
+        }
+
+        //public DateTime CtreateDate { get; set; }
+        //public DateTime UpdateDate { get; set; }
+        //public string CreatedBy { get; set; }
+        //public string UpdatedBy { get; set; }
     }
 }
-
 
 //- Risk Scoring
 
@@ -30,10 +53,14 @@ namespace CGInnovation.ProjectZen.Risks
 
 //- Risk Data
 
+// Properties are inherits from AuditedAggregateRoot<TKey>
 //- Created Date
 //- Updated Date
 //- Created By
 //- Updated By
+
+// Custom propeties
+
 //- Mitigation(Full, Partial, None)
 //- Mitigation Description(Text)
 //- Occurred(Yes / No)

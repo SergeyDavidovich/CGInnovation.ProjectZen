@@ -2,6 +2,8 @@
 {
     public enum Mitigation
     {
-        Full, Partial, None
+        Full, 
+        Partial,
+        None
     }
 }
