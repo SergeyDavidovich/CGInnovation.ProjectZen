@@ -4,7 +4,6 @@
 //using System.Text;
 //using System.Threading.Tasks;
 
-//using Volo.Abp.Domain.Entities;
 using Volo.Abp.MultiTenancy;
 
 using Volo.Abp.Domain.Entities.Auditing;
@@ -54,10 +53,10 @@ namespace CGInnovation.ProjectZen.Risks
 //- Risk Data
 
 // Properties are inherits from AuditedAggregateRoot<TKey>
-//- Created Date
-//- Updated Date
-//- Created By
-//- Updated By
+// https://docs.abp.io/en/abp/latest/Audit-Logging
+
+// public virtual DateTime? LastModificationTime { get; set; }
+// public virtual Guid? LastModifierId { get; set; }
 
 // Custom propeties
 

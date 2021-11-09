@@ -9,6 +9,8 @@ using Volo.Abp.PermissionManagement.HttpApi;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
+using Volo.Abp.Auditing;
+
 namespace CGInnovation.ProjectZen
 {
     [DependsOn(
@@ -25,6 +27,11 @@ namespace CGInnovation.ProjectZen
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             ConfigureLocalization();
+            Configure<AbpAuditingOptions>(options =>
+            {
+                options.EntityHistorySelectors.AddAllEntities();
+            });
+
         }
 
         private void ConfigureLocalization()
