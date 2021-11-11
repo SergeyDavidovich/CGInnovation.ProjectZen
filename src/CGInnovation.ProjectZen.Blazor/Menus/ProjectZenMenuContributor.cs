@@ -39,17 +39,15 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
                 0,
                 new ApplicationMenuItem(
                     ProjectZenMenus.Home,
-                    l["Menu:Home"],
+                    l["Home"],
                     "/",
                     icon: "fas fa-home"
                 )
             );
-
-
-            context.Menu
-                .AddItem(
+            context.Menu.Items.Insert(
+                1,
                 new ApplicationMenuItem(
-                    "BooksStore",
+                    "Risks store",
                     l["Menu:BookStore"],
                     icon: "fa fa-book")
                         .AddItem(
@@ -57,9 +55,9 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
                         "BooksStore.Books",
                         l["Menu:Books"],
                         url: "/books"
-        )
-    )
-);
+                )
+                 )       
+            );
             return Task.CompletedTask;
 
         }

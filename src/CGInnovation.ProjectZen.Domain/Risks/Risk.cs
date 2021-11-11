@@ -12,11 +12,13 @@ namespace CGInnovation.ProjectZen.Risks
 {
     public class Risk : AuditedAggregateRoot<Guid>, IMultiTenant // Type of the primary key of the Risk
     {
+        public string Name { get; set; }
         public bool Occures { get; set; }
         public DateTime OccuredDate { get; set; }
         public Mitigation Mitigation { get; set; }
         public string MitigationDescription { get; set; }
-
+        public Impact Impact { get; set; }
+        public Likelihood Likelihood { get; set; }
         public Guid? TenantId { get; private set; }
 
         public Risk()
@@ -25,12 +27,14 @@ namespace CGInnovation.ProjectZen.Risks
         }
 
         public Risk(
+            string name,
             bool occures,
             DateTime occuredDate,
             Mitigation mitigation,
             string mitigationDescription,
             Guid? tenantId)
         {
+            Name = name;
             Occures = occures;
             OccuredDate = occuredDate;
             Mitigation = mitigation;
@@ -47,18 +51,17 @@ namespace CGInnovation.ProjectZen.Risks
 
 //- Risk Scoring
 
-//- Likelihood(1 - 10, 10 highest)
-//- Impact(1 - 10, 10 highest)
+// Likelihood(1 - 10, 10 highest)
+// Impact(1 - 10, 10 highest)
 
-//- Risk Data
+//- Risk Data - properties not implemented because they inherit from class AuditedAggregateRoot<TKey>
 
-// Properties are inherits from AuditedAggregateRoot<TKey>
-// https://docs.abp.io/en/abp/latest/Audit-Logging
+// Created Date
+// Updated Date
+// Created By
+// Updated By
 
-// public virtual DateTime? LastModificationTime { get; set; }
-// public virtual Guid? LastModifierId { get; set; }
-
-// Custom propeties
+// -Custom propeties
 
 //- Mitigation(Full, Partial, None)
 //- Mitigation Description(Text)

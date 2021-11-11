@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CGInnovation.ProjectZen.Domain.Shared\CGInnovation.ProjectZen.Domain.Shared.csproj" />
     <ProjectReference Include="..\CGInnovation.ProjectZen.Domain\CGInnovation.ProjectZen.Domain.csproj" />
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="4.4.3" />
     <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="4.4.3" />
