@@ -11,11 +11,12 @@ using Volo.Abp.Domain.Repositories;
 namespace CGInnovation.ProjectZen.Risks
 {
     public class RiskAppService: CrudAppService<
-        Risk,
-        RiskDto,
-        Guid,
-        PagedAndSortedResultRequestDto,
-        CreateUpdateRiskDto>, IRiskAppService
+        Risk, //The Risk entity
+        RiskDto, //Used to show risks
+        Guid, //Primary key of the Risk entity
+        PagedAndSortedResultRequestDto, //Used for paging/sorting
+        CreateUpdateRiskDto>, //Used to create/update a risk
+        IRiskAppService
     {
         public RiskAppService(IRepository<Risk, Guid> repository)
             : base(repository)

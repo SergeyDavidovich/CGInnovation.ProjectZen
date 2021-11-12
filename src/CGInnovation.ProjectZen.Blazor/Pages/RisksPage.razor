@@ -1,45 +1,45 @@
-﻿<h3>RisksPage</h3>
-<h2>Risks</h2>
-@page "/risks"
+﻿@page "/risks"
 @using Volo.Abp.Application.Dtos
 @using CGInnovation.ProjectZen.Risks
 @using CGInnovation.ProjectZen.Localization
 @using Microsoft.Extensions.Localization
 
-@*@inject IStringLocalizer<BookStoreResource> L
-@inherits AbpCrudPageBase<IBookAppService, BookDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateBookDto>
-*@
+@inject IStringLocalizer<ProjectZenResource> L
+@inherits AbpCrudPageBase<IRiskAppService, RiskDto, Guid, PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
 
-@*<Card>
+@*<h3>RisksPage</h3>
+<h2>Risks</h2>
+*@
+<Card>
     <CardHeader>
-        <h2>@L["Books"]</h2>
+        <h2>@L["Risks"]</h2>
     </CardHeader>
     <CardBody>
-        <DataGrid TItem="BookDto"
+        <DataGrid TItem="RiskDto"
                   Data="Entities"
                   ReadData="OnDataGridReadAsync"
                   TotalItems="TotalCount"
                   ShowPager="true"
                   PageSize="PageSize">
             <DataGridColumns>
-                <DataGridColumn TItem="BookDto"
-                                Field="@nameof(BookDto.Name)"
+                <DataGridColumn TItem="RiskDto"
+                                Field="@nameof(RiskDto.Name)"
                                 Caption="@L["Name"]"></DataGridColumn>
-                <DataGridColumn TItem="BookDto"
-                                Field="@nameof(BookDto.Type)"
-                                Caption="@L["Type"]">
-                    <DisplayTemplate>
+                <DataGridColumn TItem="RiskDto"
+                                Field="@nameof(RiskDto.Occures)"
+                                Caption="@L["Occures"]">
+                   @* <DisplayTemplate>
                         @L[$"Enum:BookType:{(int)context.Type}"]
-                    </DisplayTemplate>
+                    </DisplayTemplate>*@
                 </DataGridColumn>
-                <DataGridColumn TItem="BookDto"
-                                Field="@nameof(BookDto.PublishDate)"
-                                Caption="@L["PublishDate"]">
+                <DataGridColumn TItem="RiskDto"
+                                Field="@nameof(RiskDto.OccuredDate)"
+                                Caption="@L["OccuredDate"]">
                     <DisplayTemplate>
-                        @context.PublishDate.ToShortDateString()
+                        @context.OccuredDate.ToShortDateString()
                     </DisplayTemplate>
                 </DataGridColumn>
-                <DataGridColumn TItem="BookDto"
+                @*<DataGridColumn TItem="BookDto"
                                 Field="@nameof(BookDto.Price)"
                                 Caption="@L["Price"]">
                 </DataGridColumn>
@@ -49,12 +49,12 @@
                     <DisplayTemplate>
                         @context.CreationTime.ToLongDateString()
                     </DisplayTemplate>
-                </DataGridColumn>
+                </DataGridColumn>*@
             </DataGridColumns>
         </DataGrid>
     </CardBody>
 </Card>
-*@
+
 @code {
 
 }
