@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CGInnovation.ProjectZen.Risks;
 
 namespace CGInnovation.ProjectZen
 {
@@ -9,6 +10,8 @@ namespace CGInnovation.ProjectZen
             /* You can configure your AutoMapper mapping configuration here.
              * Alternatively, you can split your mapping configurations
              * into multiple profile classes for a better organization. */
+            CreateMap<Risk, RiskDto>();
+            CreateMap<CreateUpdateRiskDto, Risk>();
         }
     }
 }
