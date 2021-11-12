@@ -41,7 +41,7 @@ namespace CGInnovation.ProjectZen
                 await _riskRepository.InsertAsync(
                     new Risk
                     {
-                        Name = "Rick of pregnancy",
+                        Name = "Risk of pregnancy",
                         Mitigation = Mitigation.None,
                         Occures = true,
                         OccuredDate = new DateTime(1949, 6, 8),
@@ -54,7 +54,7 @@ namespace CGInnovation.ProjectZen
                 await _riskRepository.InsertAsync(
                        new Risk
                        {
-                           Name = "Rick of Covid 19",
+                           Name = "Risk of Covid 19",
                            Mitigation = Mitigation.Partial,
                            Occures = true,
                            OccuredDate = new DateTime(1949, 6, 8),
