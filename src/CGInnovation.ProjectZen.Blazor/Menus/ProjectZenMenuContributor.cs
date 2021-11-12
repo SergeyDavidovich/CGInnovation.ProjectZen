@@ -48,13 +48,13 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
                 1,
                 new ApplicationMenuItem(
                     "Risks store",
-                    l["Menu:BookStore"],
+                    l["Menu:RiskStore"],
                     icon: "fa fa-book")
                         .AddItem(
                         new ApplicationMenuItem(
-                        "BooksStore.Books",
-                        l["Menu:Books"],
-                        url: "/books"
+                        "RiskStore.Risks",
+                        l["Menu:Risks"],
+                        url: "/risks"
                 )
                  )       
             );
