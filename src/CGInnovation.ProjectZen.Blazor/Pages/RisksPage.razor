@@ -146,11 +146,11 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
     </ModalContent>
 </Modal>
 <Modal @ref="@EditModal">
-@*    <ModalContent IsCentered="true">
+    <ModalContent IsCentered="true">
         <Form>
             <ModalHeader>
                 <ModalTitle>@EditingEntity.Name</ModalTitle>
-                <CloseButton Clicked="CloseEditModalAsync"/>
+                <CloseButton Clicked="CloseEditModalAsync" />
             </ModalHeader>
             <ModalBody>
                 <Validations @ref="@EditValidationsRef" Model="@NewEntity" ValidateOnLoad="false">
@@ -159,43 +159,48 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
                             <FieldLabel>@L["Name"]</FieldLabel>
                             <TextEdit @bind-Text="@EditingEntity.Name">
                                 <Feedback>
-                                    <ValidationError/>
+                                    <ValidationError />
                                 </Feedback>
                             </TextEdit>
                         </Field>
                     </Validation>
                     <Field>
-                        <FieldLabel>@L["Type"]</FieldLabel>
-                        <Select TValue="BookType" @bind-SelectedValue="@EditingEntity.Type">
-                            @foreach (int bookTypeValue in Enum.GetValues(typeof(BookType)))
+                        <FieldLabel>@L["Mitigation"]</FieldLabel>
+                        <Select TValue="Mitigation" @bind-SelectedValue="@EditingEntity.Mitigation">
+                            @foreach (Mitigation riskMitigationValue in Enum.GetValues(typeof(Mitigation)))
                             {
-                                <SelectItem TValue="BookType" Value="@((BookType) bookTypeValue)">
-                                    @L[$"Enum:BookType:{bookTypeValue}"]
+                                <SelectItem TValue="Mitigation" Value="@((Mitigation) riskMitigationValue)">
+                                    @L[$"{riskMitigationValue}"]
                                 </SelectItem>
                             }
                         </Select>
                     </Field>
-                    <Field>
+                    @*<Field>
                         <FieldLabel>@L["PublishDate"]</FieldLabel>
                         <DateEdit TValue="DateTime" @bind-Date="EditingEntity.PublishDate"/>
-                    </Field>
-                    <Field>
+                        </Field>
+                        <Field>
                         <FieldLabel>@L["Price"]</FieldLabel>
                         <NumericEdit TValue="float" @bind-Value="EditingEntity.Price"/>
-                    </Field>
+                        </Field>
+                    *@
                 </Validations>
             </ModalBody>
             <ModalFooter>
                 <Button Color="Color.Secondary"
-                        Clicked="CloseEditModalAsync">@L["Cancel"]</Button>
+                        Clicked="CloseEditModalAsync">
+                    @L["Cancel"]
+                </Button>
                 <Button Color="Color.Primary"
                         Type="@ButtonType.Submit"
                         PreventDefaultOnSubmit="true"
-                        Clicked="UpdateEntityAsync">@L["Save"]</Button>
+                        Clicked="UpdateEntityAsync">
+                    @L["Save"]
+                </Button>
             </ModalFooter>
         </Form>
     </ModalContent>
-*@</Modal>
+</Modal>
 
 
 @code {
