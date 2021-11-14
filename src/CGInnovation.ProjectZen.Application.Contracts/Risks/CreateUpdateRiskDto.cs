@@ -11,25 +11,25 @@ namespace CGInnovation.ProjectZen.Risks
         [StringLength(128)]
         public string Name { get; set; }
         
-        [Required]
+        //[Required]
         public bool Occures { get; set; }
 
-        [Required]
+        //[Required]
         public DateTime OccuredDate { get; set; }
-        
+
         [Required]
         public Mitigation Mitigation { get; set; }
         
-        [Required]
+        //[Required]
         public string MitigationDescription { get; set; }
 
-        [Required]
+        //[Required]
         public Impact Impact { get; set; }
 
-        [Required]
+        //[Required]
         public Likelihood Likelihood { get; set; }
 
-        [Required]
+        //[Required]
         public Guid? TenantId { get; private set; }
     }
 }

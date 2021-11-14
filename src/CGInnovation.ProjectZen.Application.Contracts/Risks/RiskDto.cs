@@ -15,6 +15,5 @@ namespace CGInnovation.ProjectZen.Risks
         public Impact Impact { get; set; }
         public Likelihood Likelihood { get; set; }
         public Guid? TenantId { get; private set; }
-
     }
 }
