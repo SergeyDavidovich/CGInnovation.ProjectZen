@@ -1,8 +1,13 @@
 ﻿@page "/risks"
+
 @using Volo.Abp.Application.Dtos
 @using CGInnovation.ProjectZen.Risks
 @using CGInnovation.ProjectZen.Localization
 @using Microsoft.Extensions.Localization
+@using CGInnovation.ProjectZen.Permissions
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize(ProjectZenPermissions.Risks.Default)]
 
 @inject IStringLocalizer<ProjectZenResource> L
 @inject AbpBlazorMessageLocalizerHelper<ProjectZenResource> LH
