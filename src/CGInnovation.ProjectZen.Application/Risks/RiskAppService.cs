@@ -21,7 +21,7 @@ namespace CGInnovation.ProjectZen.Risks
         public RiskAppService(IRepository<Risk, Guid> repository)
             : base(repository)
         {
-
+           
         }
     }
 }

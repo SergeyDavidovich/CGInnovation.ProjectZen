@@ -75,13 +75,13 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
                                 Field="@nameof(RiskDto.Likelihood)"
                                 Caption="@L["Likelihood"]">
                 </DataGridColumn>
-                <DataGridColumn TItem="RiskDto"
-                                Field="@nameof(RiskDto.Likelihood)"
-                                Caption="@L["Likelihood"]">
+                 <DataGridColumn TItem="RiskDto"
+                                Field="@nameof(RiskDto.CreationTime)"
+                                Caption="@L["Creating time"]">
                 </DataGridColumn>
                 <DataGridColumn TItem="RiskDto"
-                                Field="@nameof(RiskDto.Likelihood)"
-                                Caption="@L["Likelihood"]">
+                                Field="@nameof(RiskDto.LastModificationTime)"
+                                Caption="@L["Modification time"]">
                 </DataGridColumn>
 
             </DataGridColumns>
