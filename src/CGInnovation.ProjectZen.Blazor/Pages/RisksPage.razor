@@ -38,10 +38,10 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
                             <EntityAction TItem="RiskDto"
                                           Text="@L["Edit"]"
                                           Clicked="() => OpenEditModalAsync(context)" />
-                        <EntityAction TItem="RiskDto"
-                                      Text="@L["Delete"]"
-                                      Clicked="() => DeleteEntityAsync(context)"
-                                      ConfirmationMessage="() => GetDeleteConfirmationMessage(context)" />
+                            <EntityAction TItem="RiskDto"
+                                          Text="@L["Delete"]"
+                                          Clicked="() => DeleteEntityAsync(context)"
+                                          ConfirmationMessage="() => GetDeleteConfirmationMessage(context)" />
                         </EntityActions>
 
                     </DisplayTemplate>
@@ -75,7 +75,7 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
                                 Field="@nameof(RiskDto.Likelihood)"
                                 Caption="@L["Likelihood"]">
                 </DataGridColumn>
-                 <DataGridColumn TItem="RiskDto"
+                <DataGridColumn TItem="RiskDto"
                                 Field="@nameof(RiskDto.CreationTime)"
                                 Caption="@L["Creating time"]">
                 </DataGridColumn>
@@ -212,8 +212,10 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
     protected override async Task OnInitializedAsync()
     {
 #if DEBUG
-    await Task.Delay(10000);
+    await Task.Delay(0);
+
+
+   
 #endif
     }
-    // Write code here
 }

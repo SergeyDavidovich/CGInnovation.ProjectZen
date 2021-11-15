@@ -8,9 +8,12 @@ namespace CGInnovation.ProjectZen.Permissions
     {
         public override void Define(IPermissionDefinitionContext context)
         {
-            var myGroup = context.AddGroup(ProjectZenPermissions.GroupName);
-            //Define your own permissions here. Example:
-            //myGroup.AddPermission(ProjectZenPermissions.MyPermission1, L("Permission:MyPermission1"));
+            var riskStoreGroup = context.AddGroup(ProjectZenPermissions.GroupName, L("Risk store Management"));
+
+            var riskPermission = riskStoreGroup.AddPermission(ProjectZenPermissions.Risks.Default, L("Permission:Risks"));
+            riskPermission.AddChild(ProjectZenPermissions.Risks.Create, L("Permission:Risks.Create"));
+            riskPermission.AddChild(ProjectZenPermissions.Risks.Edit, L("Permission:Risks.Edit"));
+            riskPermission.AddChild(ProjectZenPermissions.Risks.Delete, L("Permission:Risks.Delete"));
         }
 
         private static LocalizableString L(string name)

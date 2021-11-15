@@ -16,9 +16,9 @@ namespace CGInnovation.ProjectZen
 
         private readonly IRepository<Risk, Guid> _riskRepository;
 
-        public RiskStoreDataSeederContributor(IRepository<Risk, Guid> bookRepository)
+        public RiskStoreDataSeederContributor(IRepository<Risk, Guid> riskRepository)
         {
-            _riskRepository = bookRepository;
+            _riskRepository = riskRepository;
         }
 
         public async Task SeedAsync(DataSeedContext context)
