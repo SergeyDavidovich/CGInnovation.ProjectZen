@@ -1,14 +1,18 @@
 ﻿@page "/"
 @using Volo.Abp.MultiTenancy
+
 @inherits ProjectZenComponentBase
 @inject ICurrentTenant CurrentTenant
 @inject AuthenticationStateProvider AuthenticationStateProvider
+
 <div class="container">
     <div class="p-5 text-center">
-        <Badge Color="Color.Success" class="mb-4">
+
+@*        
+    <Badge Color="Color.Success" class="mb-4">
             <h5 class="m-1"> <i class="fas fa-rocket"></i> Congratulations, <strong>ProjectZen</strong> is successfully running!</h5>
         </Badge>
-
+*@
         <h1>Welcome to the Zen Application</h1>
 
         <p class="lead px-lg-5 mx-lg-5">@L["LongWelcomeMessage"]</p>
@@ -20,7 +24,9 @@
             </a>
         }
     </div>
+    <img width="1100" style="display:box" src="/images/ml.jpg"/>
 
+    @*
     <div class="my-3 text-center">
         <h3>Let's improve your application!</h3>
         <p>Here are some links to help you get started:</p>
@@ -152,4 +158,5 @@
             <a href="https://github.com/abpframework/abp" target="_blank" class="mx-2"><i class="fab fa-github"></i><span class="text-secondary"> abpframework</span></a>
         </p>
     </div>
+    *@
 </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CGInnovation.ProjectZen.Permissions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,11 @@ namespace CGInnovation.ProjectZen.Risks
         public RiskAppService(IRepository<Risk, Guid> repository)
             : base(repository)
         {
-           
+            GetPolicyName = ProjectZenPermissions.Risks.Default;
+            GetListPolicyName = ProjectZenPermissions.Risks.Default;
+            CreatePolicyName = ProjectZenPermissions.Risks.Create;
+            UpdatePolicyName = ProjectZenPermissions.Risks.Edit;
+            DeletePolicyName = ProjectZenPermissions.Risks.Delete;
         }
     }
 }

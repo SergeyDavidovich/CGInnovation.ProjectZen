@@ -10,7 +10,12 @@ using Volo.Abp.Domain.Entities.Auditing;
 
 namespace CGInnovation.ProjectZen.Risks
 {
-    public class Risk : AuditedAggregateRoot<Guid>, IMultiTenant // Type of the primary key of the Risk
+    /// <summary>
+    /// Book entity inherits from the AuditedAggregateRoot which adds some base auditing properties 
+    /// (like CreationTime, CreatorId, LastModificationTime...) on top of the AggregateRoot class. 
+    /// ABP automatically manages these properties for you.
+    /// </summary>
+    public class Risk : AuditedAggregateRoot<Guid>, IMultiTenant 
     {
         public string Name { get; set; }
         public bool Occures { get; set; }

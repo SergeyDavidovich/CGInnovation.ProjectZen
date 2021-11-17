@@ -22,10 +22,20 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
                 <h2>@L["Risks"]</h2>
             </Column>
             <Column ColumnSize="ColumnSize.IsAuto">
+
+                @*
+                    @if (HasCreatePermission)
+                    {
+                *@
+
                 <Button Color="Color.Primary"
                         Clicked="OpenCreateModalAsync">
                     @L["Add Risk"]
                 </Button>
+
+                @*               
+                    }
+                *@
             </Column>
         </Row>
     </CardHeader>
@@ -218,9 +228,13 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
     {
 #if DEBUG
     await Task.Delay(0);
-
-
-   
 #endif
+    }
+
+    public RisksPage() // Constructor
+    {
+        CreatePolicyName = ProjectZenPermissions.Risks.Create;
+        UpdatePolicyName = ProjectZenPermissions.Risks.Edit;
+        DeletePolicyName = ProjectZenPermissions.Risks.Delete;
     }
 }
