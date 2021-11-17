@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+
+namespace CGInnovation.ProjectZen.Projects
+{
+    public class UpdateProjectDto
+    {
+        [Required]
+        [StringLength(ProjectConsts.MaxNameLength)]
+        public string Name { get; set; }
+    }
+}
