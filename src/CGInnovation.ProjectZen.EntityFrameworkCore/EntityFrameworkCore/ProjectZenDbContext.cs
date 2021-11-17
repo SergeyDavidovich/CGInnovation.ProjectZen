@@ -15,6 +15,7 @@ using Volo.Abp.TenantManagement.EntityFrameworkCore;
 
 using CGInnovation.ProjectZen.Risks;
 using Volo.Abp.EntityFrameworkCore.Modeling;
+using CGInnovation.ProjectZen.Projects;
 
 namespace CGInnovation.ProjectZen.EntityFrameworkCore
 {
@@ -25,6 +26,7 @@ namespace CGInnovation.ProjectZen.EntityFrameworkCore
     {
         /* Add DbSet properties for your Aggregate Roots / Entities here. */
         public DbSet<Risk> Risks { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         #region Entities from the modules
 
@@ -88,6 +90,19 @@ namespace CGInnovation.ProjectZen.EntityFrameworkCore
                 b.ToTable(ProjectZenConsts.DbTablePrefix + "Risks", ProjectZenConsts.DbSchema);
                 b.ConfigureByConvention(); //auto configure fore the base class props
                 b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+            });
+
+            builder.Entity<Project>(b =>
+            {
+                b.ToTable(ProjectZenConsts.DbTablePrefix + "Projects", ProjectZenConsts.DbSchema);
+
+                b.ConfigureByConvention();
+
+                b.Property(x => x.Name)
+                    .IsRequired()
+                    .HasMaxLength(ProjectConsts.MaxNameLength);
+
+                b.HasIndex(x => x.Name);
             });
         }
     }

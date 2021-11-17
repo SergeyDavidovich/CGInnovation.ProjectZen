@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CGInnovation.ProjectZen.Projects
 {
-    public static class AuthorConsts
+    public static class ProjectConsts
     {
         public const int MaxNameLength = 64;
     }

@@ -41,7 +41,7 @@ namespace CGInnovation.ProjectZen.Projects
         {
             Name =
                 Check.NotNullOrWhiteSpace(name, nameof(name), 
-                maxLength: AuthorConsts.MaxNameLength);
+                maxLength: ProjectConsts.MaxNameLength);
         }
     }
 }
