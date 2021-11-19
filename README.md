@@ -1,2 +1,2 @@
 # CGInnovation.ProjectZen
-<img src="/.img.png")/>
+<img src="img.png"/>
