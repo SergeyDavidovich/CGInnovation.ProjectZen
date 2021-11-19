@@ -8,8 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazorise.Bootstrap" Version="0.9.4.1" />
-    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.4.1" />
+    <Content Remove="Pages\RiskMonitorPage.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazorise.Bootstrap" Version="0.9.5" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.*" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.*" />
   </ItemGroup>
@@ -27,6 +31,22 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\CGInnovation.ProjectZen.HttpApi.Client\CGInnovation.ProjectZen.HttpApi.Client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\RiskMonitorPage.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\RiskMonitorPage.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\RiskMonitorPage.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\" />
   </ItemGroup>
 
 </Project>
