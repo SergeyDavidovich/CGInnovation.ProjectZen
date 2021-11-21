@@ -36,7 +36,6 @@ namespace CGInnovation.ProjectZen.Projects
             SetName(name);
             return this;
         }
-
         private void SetName([NotNull] string name)
         {
             Name =
