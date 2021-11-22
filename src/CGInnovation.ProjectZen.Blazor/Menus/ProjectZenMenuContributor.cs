@@ -7,6 +7,7 @@ using Volo.Abp.Account.Localization;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.Users;
+using CGInnovation.ProjectZen.Permissions;
 
 namespace CGInnovation.ProjectZen.Blazor.Menus
 {
@@ -31,7 +32,7 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
             }
         }
 
-        private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
+        private async Task ConfigureMainMenuAsync(MenuConfigurationContext context)
         {
             var l = context.GetLocalizer<ProjectZenResource>();
 
@@ -47,19 +48,23 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
             context.Menu.Items.Insert(
                 1,
                 new ApplicationMenuItem(
-                    "Risks store",
-                    l["Menu:RiskStore"],
+                    ProjectZenMenus.Risk,
+                    l["Risks"],
+                    "/risks",
                     icon: "fa fa-book")
-                        .AddItem(
-                        new ApplicationMenuItem(
-                        "RiskStore.Risks",
-                        l["Menu:Risks"],
-                        url: "/risks"
-                )
-                 )       
             );
-            return Task.CompletedTask;
 
+            //if (await context.IsGrantedAsync(ProjectZenPermissions.Projects.Default))
+            //{
+            context.Menu.Items.Insert(
+                2,
+                new ApplicationMenuItem(
+                ProjectZenMenus.Project,
+                l["Projects"],
+                url: "/projects",
+                icon: "fa fa-book")
+                );
+            //}
         }
 
         private Task ConfigureUserMenuAsync(MenuConfigurationContext context)

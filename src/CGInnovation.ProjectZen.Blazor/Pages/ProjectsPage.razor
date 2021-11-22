@@ -8,21 +8,19 @@
 @inject IProjectAppService ProjectAppService
 @inject AbpBlazorMessageLocalizerHelper<ProjectZenResource> LH
 
-@*
-
     <Card>
     <CardHeader>
         <Row>
             <Column ColumnSize="ColumnSize.Is6">
-                <h2>@L["Authors"]</h2>
+                <h2>@L["Projects"]</h2>
             </Column>
             <Column ColumnSize="ColumnSize.Is6">
                 <Paragraph Alignment="TextAlignment.Right">
-                    @if (CanCreateAuthor)
+                    @if (CanCreateProject)
                     {
                         <Button Color="Color.Primary"
-                                Clicked="OpenCreateAuthorModal">
-                            @L["NewAuthor"]
+                                Clicked="OpenCreateProjectModal">
+                            @L["NewProject"]
                         </Button>
                     }
                 </Paragraph>
@@ -30,16 +28,16 @@
         </Row>
     </CardHeader>
     <CardBody>
-        <DataGrid TItem="AuthorDto"
-                  Data="AuthorList"
+        <DataGrid TItem="ProjectDto"
+                  Data="ProjectList"
                   ReadData="OnDataGridReadAsync"
                   TotalItems="TotalCount"
                   ShowPager="true"
                   PageSize="PageSize">
             <DataGridColumns>
                 <DataGridColumn Width="150px"
-                                TItem="AuthorDto"
-                                Field="@nameof(AuthorDto.Id)"
+                                TItem="ProjectDto"
+                                Field="@nameof(ProjectDto.Id)"
                                 Sortable="false"
                                 Caption="@L["Actions"]">
                     <DisplayTemplate>
@@ -48,15 +46,15 @@
                                 @L["Actions"]
                             </DropdownToggle>
                             <DropdownMenu>
-                                @if (CanEditAuthor)
+                                @if (CanEditProject)
                                 {
-                                    <DropdownItem Clicked="() => OpenEditAuthorModal(context)">
+                                    <DropdownItem Clicked="() => OpenEditProjectModal(context)">
                                         @L["Edit"]
                                     </DropdownItem>
                                 }
-                                @if (CanDeleteAuthor)
+                                @if (CanDeleteProject)
                                 {
-                                    <DropdownItem Clicked="() => DeleteAuthorAsync(context)">
+                                    <DropdownItem Clicked="() => DeleteProjectAsync(context)">
                                         @L["Delete"]
                                     </DropdownItem>
                                 }
@@ -64,64 +62,38 @@
                         </Dropdown>
                     </DisplayTemplate>
                 </DataGridColumn>
-                <DataGridColumn TItem="AuthorDto"
-                                Field="@nameof(AuthorDto.Name)"
+                <DataGridColumn TItem="ProjectDto"
+                                Field="@nameof(ProjectDto.Name)"
                                 Caption="@L["Name"]"></DataGridColumn>
-                <DataGridColumn TItem="AuthorDto"
-                                Field="@nameof(AuthorDto.BirthDate)"
-                                Caption="@L["BirthDate"]">
-                    <DisplayTemplate>
-                        @context.BirthDate.ToShortDateString()
-                    </DisplayTemplate>
-                </DataGridColumn>
             </DataGridColumns>
         </DataGrid>
     </CardBody>
 </Card>
 
-*@
-
-@*
-
-<Modal @ref="CreateAuthorModal">
-    <ModalBackdrop />
+<Modal @ref="CreateProjectModal">
     <ModalContent IsCentered="true">
         <Form>
             <ModalHeader>
-                <ModalTitle>@L["NewAuthor"]</ModalTitle>
-                <CloseButton Clicked="CloseCreateAuthorModal" />
+                <ModalTitle>@L["NewProject"]</ModalTitle>
+                <CloseButton Clicked="CloseCreateProjectModal" />
             </ModalHeader>
             <ModalBody>
-                <Validations @ref="@CreateValidationsRef" Model="@NewAuthor" ValidateOnLoad="false">
+                <Validations @ref="@CreateValidationsRef" Model="@NewProject" ValidateOnLoad="false">
                     <Validation MessageLocalizer="@LH.Localize">
                         <Field>
                             <FieldLabel>@L["Name"]</FieldLabel>
-                            <TextEdit @bind-Text="@NewAuthor.Name">
+                            <TextEdit @bind-Text="@NewProject.Name">
                                 <Feedback>
                                     <ValidationError/>
                                 </Feedback>
                             </TextEdit>
                         </Field>
                     </Validation>
-                    <Field>
-                        <FieldLabel>@L["BirthDate"]</FieldLabel>
-                        <DateEdit TValue="DateTime" @bind-Date="@NewAuthor.BirthDate"/>
-                    </Field>
-                    <Validation MessageLocalizer="@LH.Localize">
-                        <Field>
-                            <FieldLabel>@L["ShortBio"]</FieldLabel>
-                            <MemoEdit Rows="5" @bind-Text="@NewAuthor.ShortBio">
-                                <Feedback>
-                                    <ValidationError/>
-                                </Feedback>
-                            </MemoEdit>
-                        </Field>
-                    </Validation>
                 </Validations>
             </ModalBody>
             <ModalFooter>
                 <Button Color="Color.Secondary"
-                        Clicked="CloseCreateAuthorModal">
+                        Clicked="CloseCreateProjectModal">
                     @L["Cancel"]
                 </Button>
                 <Button Color="Color.Primary"
@@ -135,49 +107,30 @@
     </ModalContent>
 </Modal>
 
-*@
-
-@*
-
-    <Modal @ref="EditAuthorModal">
-    <ModalBackdrop />
+    <Modal @ref="EditProjectModal">
     <ModalContent IsCentered="true">
         <Form>
             <ModalHeader>
-                        <ModalTitle>@EditingAuthor.Name</ModalTitle>
-                        <CloseButton Clicked="CloseEditAuthorModal" />
+                        <ModalTitle>@EditingProject.Name</ModalTitle>
+                        <CloseButton Clicked="CloseEditProjectModal" />
                     </ModalHeader>
             <ModalBody>
-                <Validations @ref="@EditValidationsRef" Model="@EditingAuthor" ValidateOnLoad="false">
+                <Validations @ref="@EditValidationsRef" Model="@EditingProject" ValidateOnLoad="false">
                     <Validation MessageLocalizer="@LH.Localize">
                         <Field>
                             <FieldLabel>@L["Name"]</FieldLabel>
-                            <TextEdit @bind-Text="@EditingAuthor.Name">
+                            <TextEdit @bind-Text="@EditingProject.Name">
                                 <Feedback>
                                     <ValidationError/>
                                 </Feedback>
                             </TextEdit>
                         </Field>
                     </Validation>
-                    <Field>
-                        <FieldLabel>@L["BirthDate"]</FieldLabel>
-                        <DateEdit TValue="DateTime" @bind-Date="@EditingAuthor.BirthDate"/>
-                    </Field>
-                    <Validation>
-                        <Field>
-                            <FieldLabel>@L["ShortBio"]</FieldLabel>
-                            <MemoEdit Rows="5" @bind-Text="@EditingAuthor.ShortBio">
-                                <Feedback>
-                                    <ValidationError/>
-                                </Feedback>
-                            </MemoEdit>
-                        </Field>
-                    </Validation>
                 </Validations>
             </ModalBody>
             <ModalFooter>
                 <Button Color="Color.Secondary"
-                        Clicked="CloseEditAuthorModal">
+                        Clicked="CloseEditProjectModal">
                     @L["Cancel"]
                 </Button>
                 <Button Color="Color.Primary"
@@ -190,5 +143,3 @@
         </Form>
     </ModalContent>
 </Modal>
-
-*@

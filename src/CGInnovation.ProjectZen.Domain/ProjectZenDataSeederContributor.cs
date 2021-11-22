@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using CGInnovation.ProjectZen.Projects;
 using CGInnovation.ProjectZen.Risks;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
@@ -11,14 +11,22 @@ using Volo.Abp.Domain.Repositories;
 
 namespace CGInnovation.ProjectZen
 {
-    public class RiskStoreDataSeederContributor : IDataSeedContributor, ITransientDependency
+    public class ProjectZenDataSeederContributor : IDataSeedContributor, ITransientDependency
     {
 
         private readonly IRepository<Risk, Guid> _riskRepository;
+        private readonly IRepository<Project,Guid> _projectRepository;
+        private readonly ProjectManager _projectManager;
 
-        public RiskStoreDataSeederContributor(IRepository<Risk, Guid> riskRepository)
+        public ProjectZenDataSeederContributor(
+            IRepository<Risk, Guid> riskRepository,
+            IRepository<Project,Guid> projectRepository,
+            ProjectManager projectManager
+            )
         {
             _riskRepository = riskRepository;
+            _projectRepository = projectRepository;
+            _projectManager = projectManager;
         }
 
         public async Task SeedAsync(DataSeedContext context)
@@ -64,6 +72,16 @@ namespace CGInnovation.ProjectZen
                        },
                        autoSave: true
                    );
+            }
+
+
+            if (await _projectRepository.GetCountAsync() <= 0)
+            {
+                await _projectRepository.InsertAsync(
+                    await _projectManager.CreateAsync("George Orwell"));
+
+                await _projectRepository.InsertAsync(
+                    await _projectManager.CreateAsync("Douglas Adams"));
             }
         }
     }

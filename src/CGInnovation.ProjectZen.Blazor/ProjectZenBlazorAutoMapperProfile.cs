@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CGInnovation.ProjectZen.Projects;
 using CGInnovation.ProjectZen.Risks;
 
 namespace CGInnovation.ProjectZen.Blazor
@@ -9,7 +10,7 @@ namespace CGInnovation.ProjectZen.Blazor
         {
             //Define your AutoMapper configuration here for the Blazor project.
             CreateMap<RiskDto, CreateUpdateRiskDto>();
-
+            CreateMap<ProjectDto, UpdateProjectDto>();
         }
     }
 }

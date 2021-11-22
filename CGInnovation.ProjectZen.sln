@@ -40,7 +40,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0A36AD06-1640-4B0D-9DB2-6A57C98C8C22}"
 	ProjectSection(SolutionItems) = preProject
 		docs\DomainObjects.vsdx = docs\DomainObjects.vsdx
-		Links.txt = Links.txt
 		docs\Zen.Project Essentials.docx = docs\Zen.Project Essentials.docx
 	EndProjectSection
 EndProject
