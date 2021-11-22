@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CGInnovation.ProjectZen.Risks;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -16,6 +17,6 @@ namespace CGInnovation.ProjectZen.RisksInProjects
 
         public Guid? TenantId { get; private set; }
         [Required]
-        public Risks.Mitigation Mitigation { get; private set; }
+        public Mitigation Mitigation { get; private set; }
     }
 }

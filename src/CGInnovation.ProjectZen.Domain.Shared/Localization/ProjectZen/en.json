@@ -5,11 +5,17 @@
     "Welcome": "Welcome",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
 
-    "Permission:ProjectZen": "Risk Store",
-    "Permission:Risks": "Risk Management",
+    "Permission:ProjectZen": "Project Zen",
+    "Permission:Risks": "Risks Management",
     "Permission:Risks.Create": "Creating new risks",
     "Permission:Risks.Edit": "Editing the risks",
     "Permission:Risks.Delete": "Deleting the risks",
+
+    "Permission:Projects": "Projects Management",
+    "Permission:Projects.Create": "Creating new projects",
+    "Permission:Projects.Edit": "Editing the projects",
+    "Permission:Projects.Delete": "Deleting the projects",
+
 
     "ProjectZen:00001": "There is already an project with the same name: {name}"
   }
