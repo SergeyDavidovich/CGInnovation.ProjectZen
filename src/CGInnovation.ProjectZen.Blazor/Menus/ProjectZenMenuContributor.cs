@@ -32,7 +32,7 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
             }
         }
 
-        private async Task ConfigureMainMenuAsync(MenuConfigurationContext context)
+        private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
         {
             var l = context.GetLocalizer<ProjectZenResource>();
 
@@ -65,6 +65,8 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
                 icon: "fa fa-book")
                 );
             //}
+            return Task.CompletedTask;
+
         }
 
         private Task ConfigureUserMenuAsync(MenuConfigurationContext context)
