@@ -1,32 +1,30 @@
-﻿using System;
+﻿using CGInnovation.ProjectZen.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Dynamic.Core;
 using System.Text;
 using System.Threading.Tasks;
-using CGInnovation.ProjectZen.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 
-namespace CGInnovation.ProjectZen.Projects
+namespace CGInnovation.ProjectZen.Strategies
 {
-    public class EfCoreProjectRepository
-        : EfCoreRepository<ProjectZenDbContext, Project, Guid>,
-            IProjectRepository
+    public class EfCoreStrategyRepository 
+        : EfCoreRepository<ProjectZenDbContext, Strategy, Guid>,
+            IStrategyRepository
     {
-        public EfCoreProjectRepository(IDbContextProvider<ProjectZenDbContext> dbContextProvider) 
+        public EfCoreStrategyRepository(IDbContextProvider<ProjectZenDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
         }
-
-        public async Task<Project> FindByNameAsync(string name)
+        public async Task<Strategy> FindByNameAsync(string name)
         {
             var dbSet = await GetDbSetAsync();
-            return await dbSet.FirstOrDefaultAsync(author => author.Name == name);
+            return await dbSet.FirstOrDefaultAsync(strategy => strategy.Name == name);
         }
 
-        public async Task<List<Project>> GetListAsync(
+        public async Task<List<Strategy>> GetListAsync(
             int skipCount, 
             int maxResultCount, 
             string sorting, 
@@ -36,9 +34,9 @@ namespace CGInnovation.ProjectZen.Projects
             return await dbSet
                 .WhereIf(
                     !filter.IsNullOrWhiteSpace(),
-                    project => project.Name.Contains(filter)
+                    strategy => strategy.Name.Contains(filter)
                  )
-                .OrderBy(sorting)
+                //.OrderBy(sorting)
                 .Skip(skipCount)
                 .Take(maxResultCount)
                 .ToListAsync();

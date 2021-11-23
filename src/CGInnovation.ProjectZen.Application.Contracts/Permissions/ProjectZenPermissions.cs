@@ -17,6 +17,13 @@
             public const string Edit = Default + ".Edit";
             public const string Delete = Default + ".Delete";
         }
+        public static class Strategies
+        {
+            public const string Default = GroupName + ".Strategies";
+            public const string Create = Default + ".Create";
+            public const string Edit = Default + ".Edit";
+            public const string Delete = Default + ".Delete";
+        }
     }
 }
 

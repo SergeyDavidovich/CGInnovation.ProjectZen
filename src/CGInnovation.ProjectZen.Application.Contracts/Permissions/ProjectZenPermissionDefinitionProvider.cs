@@ -19,6 +19,11 @@ namespace CGInnovation.ProjectZen.Permissions
             proectsPermission.AddChild(ProjectZenPermissions.Projects.Create, L("Permission:Proects.Create"));
             proectsPermission.AddChild(ProjectZenPermissions.Projects.Edit, L("Permission:Proects.Edit"));
             proectsPermission.AddChild(ProjectZenPermissions.Projects.Delete, L("Permission:Proects.Delete"));
+
+            var strategysPermission = projectZenGroup.AddPermission(ProjectZenPermissions.Strategies.Default, L("Permission:Strategies"));
+            strategysPermission.AddChild(ProjectZenPermissions.Strategies.Create, L("Permission:Strategies.Create"));
+            strategysPermission.AddChild(ProjectZenPermissions.Strategies.Edit, L("Permission:Strategies.Edit"));
+            strategysPermission.AddChild(ProjectZenPermissions.Strategies.Delete, L("Permission:Strategies.Delete"));
         }
         private static LocalizableString L(string name)
         {

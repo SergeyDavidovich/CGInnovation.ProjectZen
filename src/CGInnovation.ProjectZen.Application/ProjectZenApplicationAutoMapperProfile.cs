@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CGInnovation.ProjectZen.Projects;
 using CGInnovation.ProjectZen.Risks;
+using CGInnovation.ProjectZen.Strategies;
 
 namespace CGInnovation.ProjectZen
 {
@@ -16,6 +17,7 @@ namespace CGInnovation.ProjectZen
             CreateMap<CreateUpdateRiskDto, Risk>();
             
             CreateMap<Project, ProjectDto>();
+            CreateMap<Strategy, StrategyDto>();
         }
     }
 }

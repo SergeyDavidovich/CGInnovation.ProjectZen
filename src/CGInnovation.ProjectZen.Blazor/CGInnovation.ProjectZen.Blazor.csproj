@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Content Remove="Pages\RiskMonitorPage.razor" />
-    <Content Remove="Pages\StrategiesPage.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,20 +40,14 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\RiskMonitorPage.razor" />
-    <_ContentIncludedByDefault Remove="Pages\StrategiesPage.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Pages\RiskMonitorPage.razor" />
-    <None Include="Pages\StrategiesPage.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Common\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\StrategiesPage.razor" />
   </ItemGroup>
 
 </Project>

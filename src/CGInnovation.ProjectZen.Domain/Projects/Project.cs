@@ -17,14 +17,13 @@ namespace CGInnovation.ProjectZen.Projects
     /// </summary>
     public class Project : FullAuditedAggregateRoot<Guid>, IMultiTenant
     {
-        public string Name { get; set; }
-
-        public Guid? TenantId { get; private set; }
-
         private Project()
         {
             /* This constructor is for deserialization / ORM purpose */
         }
+        public string Name { get; set; }
+        public Guid? TenantId { get; private set; }
+
         internal Project(Guid id, [NotNull] string name)
             : base(id)
         {
