@@ -65,6 +65,15 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
                 icon: "fa fa-book")
                 );
             //}
+
+            context.Menu.Items.Insert(
+               3,
+               new ApplicationMenuItem(
+               ProjectZenMenus.Strategy,
+               l["Strategies"],
+               url: "/strategies",
+               icon: "fa fa-book")
+               );
             return Task.CompletedTask;
 
         }
