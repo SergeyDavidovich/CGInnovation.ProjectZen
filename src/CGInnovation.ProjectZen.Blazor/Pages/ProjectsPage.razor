@@ -3,6 +3,9 @@
 @using CGInnovation.ProjectZen.Projects 
 @using CGInnovation.ProjectZen.Localization 
 @using Volo.Abp.AspNetCore.Components.Web
+@using CGInnovation.ProjectZen.Permissions
+
+@attribute [Authorize(ProjectZenPermissions.Projects.Default)]
 
 @inherits ProjectZenComponentBase
 @inject IProjectAppService ProjectAppService
