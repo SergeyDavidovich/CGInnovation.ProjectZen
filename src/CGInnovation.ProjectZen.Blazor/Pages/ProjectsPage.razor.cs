@@ -107,15 +107,15 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
             EditingProject = ObjectMapper.Map<ProjectDto, UpdateProjectDto>(project);
             EditProjectModal.Show();
         }
-        private async Task DeleteProjectAsync(ProjectDto author)
+        private async Task DeleteProjectAsync(ProjectDto project)
         {
-            var confirmMessage = L["ProjectDeletionConfirmationMessage", author.Name];
+            var confirmMessage = L["ProjectDeletionConfirmationMessage", project.Name];
             if (!await Message.Confirm(confirmMessage))
             {
                 return;
             }
 
-            await ProjectAppService.DeleteAsync(author.Id);
+            await ProjectAppService.DeleteAsync(project.Id);
             await GetProjectsAsync();
         }
         private void CloseEditProjectModal()
@@ -123,7 +123,7 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
             EditProjectModal.Hide();
         }
 
-        private async Task CreateAuthorAsync()
+        private async Task CreateProjectAsync()
         {
             if (CreateValidationsRef.ValidateAll())
             {
