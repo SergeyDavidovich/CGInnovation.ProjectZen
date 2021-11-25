@@ -15,10 +15,10 @@ namespace CGInnovation.ProjectZen.Permissions
             riskPermission.AddChild(ProjectZenPermissions.Risks.Edit, L("Permission:Risks.Edit"));
             riskPermission.AddChild(ProjectZenPermissions.Risks.Delete, L("Permission:Risks.Delete"));
 
-            var proectsPermission = projectZenGroup.AddPermission(ProjectZenPermissions.Projects.Default, L("Permission:Proects"));
-            proectsPermission.AddChild(ProjectZenPermissions.Projects.Create, L("Permission:Proects.Create"));
-            proectsPermission.AddChild(ProjectZenPermissions.Projects.Edit, L("Permission:Proects.Edit"));
-            proectsPermission.AddChild(ProjectZenPermissions.Projects.Delete, L("Permission:Proects.Delete"));
+            var proectsPermission = projectZenGroup.AddPermission(ProjectZenPermissions.Projects.Default, L("Permission:Projects"));
+            proectsPermission.AddChild(ProjectZenPermissions.Projects.Create, L("Permission:Projects.Create"));
+            proectsPermission.AddChild(ProjectZenPermissions.Projects.Edit, L("Permission:Projects.Edit"));
+            proectsPermission.AddChild(ProjectZenPermissions.Projects.Delete, L("Permission:Projects.Delete"));
 
             var strategysPermission = projectZenGroup.AddPermission(ProjectZenPermissions.Strategies.Default, L("Permission:Strategies"));
             strategysPermission.AddChild(ProjectZenPermissions.Strategies.Create, L("Permission:Strategies.Create"));

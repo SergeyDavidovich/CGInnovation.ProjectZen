@@ -6,11 +6,6 @@ using Xunit;
 
 namespace CGInnovation.ProjectZen.Samples
 {
-    /* This is just an example test class.
-     * Normally, you don't test code of the modules you are using
-     * (like IIdentityUserAppService here).
-     * Only test your own application services.
-     */
     public class StrategyAppServiceTests : ProjectZenApplicationTestBase
     {
         private readonly IStrategyAppService _strategyAppService;
@@ -25,6 +20,12 @@ namespace CGInnovation.ProjectZen.Samples
         {
             //Act
             var result = await _strategyAppService.GetListAsync(new GetStrategyListDto());
+            
+            var strategy = new CreateStrategyDto();
+
+            strategy.Name = "New Strategy";
+            _strategyAppService.CreateAsync(strategy).Wait();
+
 
             //Assert
             result.TotalCount.ShouldBeGreaterThan(0);
