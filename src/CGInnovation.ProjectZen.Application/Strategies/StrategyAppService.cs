@@ -24,7 +24,7 @@ namespace CGInnovation.ProjectZen.Strategies
             _strategyRepository = strategyRepository;
             _strategyManager = strategyManager;
         }
-
+        [Authorize(ProjectZenPermissions.Strategies.Create)]
         public async Task<StrategyDto> CreateAsync(CreateStrategyDto input)
         {
             var strategy = await _strategyManager.CreateAsync(input.Name, input.Description);
@@ -33,6 +33,7 @@ namespace CGInnovation.ProjectZen.Strategies
 
             return ObjectMapper.Map<Strategy, StrategyDto>(strategy);
         }
+        [Authorize(ProjectZenPermissions.Strategies.Delete)]
         public async Task DeleteAsync(Guid id)
         {
             await _strategyRepository.DeleteAsync(id);
@@ -68,6 +69,7 @@ namespace CGInnovation.ProjectZen.Strategies
                 ObjectMapper.Map<List<Strategy>, List<StrategyDto>>(strategies)
             );
         }
+        [Authorize(ProjectZenPermissions.Strategies.Edit)]
 
         public async Task UpdateAsync(Guid id, UpdateStrategyDto input)
         {

@@ -17,7 +17,12 @@ namespace CGInnovation.ProjectZen
             CreateMap<CreateUpdateRiskDto, Risk>();
             
             CreateMap<Project, ProjectDto>();
+
             CreateMap<Strategy, StrategyDto>();
+            CreateMap<UpdateStrategyDto, StrategyDto>();
+            
+            CreateMap<StrategyDto, UpdateStrategyDto>();
+
         }
     }
 }

@@ -102,7 +102,15 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
             EditValidationsRef.ClearAll();
 
             EditingStrategyId = strategy.Id;
-            EditingStrategy = ObjectMapper.Map<StrategyDto, UpdateStrategyDto>(strategy);
+
+            try
+            {
+                var aa = ObjectMapper.Map<StrategyDto, UpdateStrategyDto>(strategy);
+            }
+            catch (Exception ex)
+            {
+                var message= ex.Message;
+            }
             EditStrategyModal.Show();
         }
         private async Task DeleteStrategyAsync(StrategyDto strategy)
@@ -131,7 +139,7 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
                 CreateStrategyModal.Hide();
             }
         }
-        private async Task UpdateAuthorAsync()
+        private async Task UpdateStrategyAsync()
         {
             if (EditValidationsRef.ValidateAll())
             {

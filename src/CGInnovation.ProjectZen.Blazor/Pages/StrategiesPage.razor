@@ -97,10 +97,22 @@
                             </TextEdit>
                         </Field>
                     </Validation>
-                    <Field>
+                    <Validation MessageLocalizer="@LH.Localize">
+                        <Field>
+                            <FieldLabel>@L["Description"]</FieldLabel>
+                            <TextEdit @bind-Text="@NewStrategy.Description">
+                                <Feedback>
+                                    <ValidationError/>
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+                    
+                   @* <Field>
                         <FieldLabel>@L["Description"]</FieldLabel>
                         <TextEdit TValue="string" @bind-Text="@NewStrategy.Description"/>
-                    </Field>
+                    </Field>*@
+
                 </Validations>
             </ModalBody>
             <ModalFooter>
@@ -138,11 +150,11 @@
                             </TextEdit>
                         </Field>
                     </Validation>
+                </Validations>
                     <Field>
                         <FieldLabel>@L["Description"]</FieldLabel>
-                        <DateEdit TValue="string" @bind-Date="@EditingStrategy.Description"/>
+                        <TextEdit @bind-Text="@EditingStrategy.Description"/>
                     </Field>
-                </Validations>
             </ModalBody>
             <ModalFooter>
                 <Button Color="Color.Secondary"
@@ -152,7 +164,7 @@
                 <Button Color="Color.Primary"
                         Type="@ButtonType.Submit"
                         PreventDefaultOnSubmit="true"
-                        Clicked="UpdateAuthorAsync">
+                        Clicked="UpdateStrategyAsync">
                     @L["Save"]
                 </Button>
             </ModalFooter>
