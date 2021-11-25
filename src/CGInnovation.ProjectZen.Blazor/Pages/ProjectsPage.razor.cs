@@ -19,7 +19,6 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
         private int CurrentPage { get; set; }
         private string CurrentSorting { get; set; }
         private int TotalCount { get; set; }
-
         private bool CanCreateProject { get; set; }
         private bool CanEditProject { get; set; }
         private bool CanDeleteProject { get; set; }

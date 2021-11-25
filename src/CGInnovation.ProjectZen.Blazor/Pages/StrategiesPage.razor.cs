@@ -19,18 +19,14 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
         private int CurrentPage { get; set; }
         private string CurrentSorting { get; set; }
         private int TotalCount { get; set; }
-
         private bool CanCreateStrategy { get; set; }
         private bool CanEditStrategy { get; set; }
         private bool CanDeleteStrategy { get; set; }
         private CreateStrategyDto NewStrategy { get; set; }
-
         private Guid EditingStrategyId { get; set; }
         private UpdateStrategyDto EditingStrategy { get; set; }
-
         private Modal CreateStrategyModal { get; set; }
         private Modal EditStrategyModal { get; set; }
-
         private Validations CreateValidationsRef;
 
         private Validations EditValidationsRef;
@@ -100,16 +96,15 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
         private void OpenEditStrategyModal(StrategyDto strategy)
         {
             EditValidationsRef.ClearAll();
-
             EditingStrategyId = strategy.Id;
-
             try
             {
-                var aa = ObjectMapper.Map<StrategyDto, UpdateStrategyDto>(strategy);
+                EditingStrategy = 
+                    ObjectMapper.Map<StrategyDto, UpdateStrategyDto>(strategy);
             }
             catch (Exception ex)
             {
-                var message= ex.Message;
+                string message= ex.Message;
             }
             EditStrategyModal.Show();
         }
