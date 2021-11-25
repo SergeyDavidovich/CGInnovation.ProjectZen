@@ -24,7 +24,7 @@ namespace CGInnovation.ProjectZen.Strategies
             : base(Id)
         {
             SetName(name);
-            SetDescription(description);
+            Description = description;
         }
         private void SetName([NotNull] string name)
         {
@@ -38,10 +38,6 @@ namespace CGInnovation.ProjectZen.Strategies
         {
             SetName(name);
             return this;
-        }
-        private void SetDescription(string description)
-        {
-            Description = description;
         }
     }
 }
