@@ -9,8 +9,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 
-
-
 namespace CGInnovation.ProjectZen.Blazor.Pages
 {
     public partial class ProjectsPage

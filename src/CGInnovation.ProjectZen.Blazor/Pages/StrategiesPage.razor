@@ -24,7 +24,7 @@
                     {
                         <Button Color="Color.Primary"
                                 Clicked="OpenCreateStrategyModal">
-                            @L["NewStrategy"]
+                            @L["Add Strategy"]
                         </Button>
                     }
                 </Paragraph>
@@ -82,7 +82,7 @@
     <ModalContent IsCentered="true">
         <Form>
             <ModalHeader>
-                <ModalTitle>@L["NewStrategy"]</ModalTitle>
+                <ModalTitle>@L["New Strategy"]</ModalTitle>
                 <CloseButton Clicked="CloseCreateStrategyModal" />
             </ModalHeader>
             <ModalBody>
@@ -99,7 +99,7 @@
                     </Validation>
                     <Field>
                         <FieldLabel>@L["Description"]</FieldLabel>
-                        <DateEdit TValue="string" @bind-Date="@NewStrategy.Description"/>
+                        <TextEdit TValue="string" @bind-Text="@NewStrategy.Description"/>
                     </Field>
                 </Validations>
             </ModalBody>

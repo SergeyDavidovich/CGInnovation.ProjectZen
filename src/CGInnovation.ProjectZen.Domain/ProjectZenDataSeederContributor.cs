@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CGInnovation.ProjectZen.Projects;
 using CGInnovation.ProjectZen.Risks;
+using CGInnovation.ProjectZen.Strategies;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
@@ -15,18 +16,28 @@ namespace CGInnovation.ProjectZen
     {
 
         private readonly IRepository<Risk, Guid> _riskRepository;
+        
         private readonly IRepository<Project,Guid> _projectRepository;
         private readonly ProjectManager _projectManager;
+
+        private readonly IRepository<Strategy, Guid> _strategyRepository;
+        private readonly StrategyManager _strategyManager;
 
         public ProjectZenDataSeederContributor(
             IRepository<Risk, Guid> riskRepository,
             IRepository<Project,Guid> projectRepository,
-            ProjectManager projectManager
-            )
+            ProjectManager projectManager,
+            StrategyManager strategyManager,
+            IRepository<Strategy, Guid> strategyRepository)
+            
         {
             _riskRepository = riskRepository;
+            
             _projectRepository = projectRepository;
             _projectManager = projectManager;
+
+            _strategyRepository = strategyRepository;
+            _strategyManager = strategyManager;
         }
 
         public async Task SeedAsync(DataSeedContext context)
@@ -82,6 +93,15 @@ namespace CGInnovation.ProjectZen
 
                 await _projectRepository.InsertAsync(
                     await _projectManager.CreateAsync("Douglas Adams"));
+            }
+
+            if (await _strategyRepository.GetCountAsync() <= 0)
+            {
+                await _strategyRepository.InsertAsync(
+                    await _strategyManager.CreateAsync("Strategy 1", "Description 1"));
+
+                await _strategyRepository.InsertAsync(
+                    await _strategyManager.CreateAsync("Strategy 2", "Description 2"));
             }
         }
     }

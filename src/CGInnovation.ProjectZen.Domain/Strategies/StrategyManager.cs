@@ -20,13 +20,15 @@ namespace CGInnovation.ProjectZen.Strategies
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
 
-            var existingProject = await _strategyRepository.FindByNameAsync(name);
-            if (existingProject != null)
+            var existingStrategy = await _strategyRepository.FindByNameAsync(name);
+            if (existingStrategy != null)
             {
                 throw new StrategyAlreadyExistsException(name);
             }
 
-            return new Strategy(GuidGenerator.Create(),name, description);
+            var strategy = new Strategy(GuidGenerator.Create(), name, description);
+
+            return strategy;
         }
         public async Task ChangeNameAsync(
            [NotNull] Strategy strategy,

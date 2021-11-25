@@ -126,6 +126,7 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
             if (CreateValidationsRef.ValidateAll())
             {
                 await StrategyAppService.CreateAsync(NewStrategy);
+
                 await GetStrategiesAsync();
                 CreateStrategyModal.Hide();
             }

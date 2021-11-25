@@ -18,7 +18,7 @@ namespace CGInnovation.ProjectZen.Strategies
         }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Guid? TenantId { get; private set; }
+        public Guid? TenantId { get; set; }
 
         internal Strategy(Guid Id, [NotNull] string name, string description) 
             : base(Id)
@@ -39,12 +39,9 @@ namespace CGInnovation.ProjectZen.Strategies
             SetName(name);
             return this;
         }
-        private void SetDescription([NotNull] string description)
+        private void SetDescription(string description)
         {
-            Description = Check.NotNullOrWhiteSpace(
-                description,
-                nameof(description)
-                );
+            Description = description;
         }
     }
 }

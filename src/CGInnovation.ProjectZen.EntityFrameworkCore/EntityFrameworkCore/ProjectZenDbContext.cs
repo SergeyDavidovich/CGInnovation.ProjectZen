@@ -113,9 +113,7 @@ namespace CGInnovation.ProjectZen.EntityFrameworkCore
 
                 b.ConfigureByConvention();
 
-                b.Property(x => x.Name)
-                    .IsRequired()
-                    .HasMaxLength(ProjectConsts.MaxNameLength);
+                b.Property(x => x.Name).IsRequired();
 
                 b.HasIndex(x => x.Name);
             });
