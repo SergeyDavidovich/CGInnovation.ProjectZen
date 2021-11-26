@@ -31,7 +31,9 @@ namespace CGInnovation.ProjectZen.Strategies
 
             await _strategyRepository.InsertAsync(strategy);
 
-            return ObjectMapper.Map<Strategy, StrategyDto>(strategy);
+            var strategyDto = ObjectMapper.Map<Strategy, StrategyDto>(strategy);
+
+            return strategyDto;
         }
         [Authorize(ProjectZenPermissions.Strategies.Delete)]
         public async Task DeleteAsync(Guid id)

@@ -18,7 +18,7 @@ namespace CGInnovation.ProjectZen.Strategies
         }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Guid? TenantId { get; set; }
+        public Guid? TenantId { get; private set; }
 
         internal Strategy(Guid Id, [NotNull] string name, string description) 
             : base(Id)
