@@ -18,6 +18,7 @@ namespace CGInnovation.ProjectZen.Risks
         public string MitigationDescription { get; set; }
 
         public Guid? TenantId { get; private set; }
+        public Guid ProjectId { get; set; }
 
         public Risk()
         {
