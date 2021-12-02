@@ -15,7 +15,7 @@ namespace CGInnovation.ProjectZen.Projects
     /// (that means when you delete it, it is not deleted in the database, but just marked as deleted) 
     /// with all the auditing properties.
     /// </summary>
-    public class Project : FullAuditedAggregateRoot<Guid>, IMultiTenant
+    public class Project : AuditedAggregateRoot<Guid>, IMultiTenant
     {
         private Project()
         {

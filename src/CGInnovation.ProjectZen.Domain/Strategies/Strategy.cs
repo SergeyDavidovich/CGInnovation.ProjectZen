@@ -11,7 +11,7 @@ using Volo.Abp.MultiTenancy;
 namespace CGInnovation.ProjectZen.Strategies
 {
 
-    public class Strategy : FullAuditedAggregateRoot<Guid>, IMultiTenant
+    public class Strategy : AuditedAggregateRoot<Guid>, IMultiTenant
     {
         private Strategy()
         {
