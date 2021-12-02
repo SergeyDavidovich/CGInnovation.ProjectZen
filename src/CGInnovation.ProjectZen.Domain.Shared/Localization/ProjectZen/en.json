@@ -24,7 +24,9 @@
 
 
 
-    "ProjectZen:00001": "There is already an project with the same name: {name}",
+    "ProjectZen:00001": "There is already a project with the same name: {name}",
+    "ProjectZen:00002": "There is already a strategy with the same name: {name}",
+
 
     "Menu:Projects": "Projects",
     "Projects": "Projects",

@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Common\**" />
+    <Content Remove="Common\**" />
+    <EmbeddedResource Remove="Common\**" />
+    <None Remove="Common\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Pages\RiskMonitorPage.razor" />
   </ItemGroup>
 
@@ -44,10 +51,6 @@
 
   <ItemGroup>
     <None Include="Pages\RiskMonitorPage.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Common\" />
   </ItemGroup>
 
 </Project>

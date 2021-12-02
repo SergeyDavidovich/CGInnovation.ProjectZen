@@ -14,7 +14,7 @@ namespace CGInnovation.ProjectZen.Strategies
     public class StrategyAlreadyExistsException : BusinessException
     {
         public StrategyAlreadyExistsException(string name)
-            : base(ProjectZenDomainErrorCodes.ProjectAlreadyExists)
+            : base(ProjectZenDomainErrorCodes.StrategyAlreadyExists)
         {
             WithData("name", name);
         }
