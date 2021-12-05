@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Domain.Services;
@@ -16,8 +12,7 @@ namespace CGInnovation.ProjectZen.Strategies
         {
             _strategyRepository = strategyRepository;
         }
-        public async Task<Strategy> CreateAsync([NotNull] string name, 
-            string description)
+        public async Task<Strategy> CreateAsync([NotNull] string name, string description)
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
 
@@ -29,9 +24,10 @@ namespace CGInnovation.ProjectZen.Strategies
             var strategy = new Strategy(GuidGenerator.Create(), name, description);
             return strategy;
         }
-        public async Task ChangeNameAsync(
+        public async Task ChangeAsync(
            [NotNull] Strategy strategy,
-           [NotNull] string newName)
+           [NotNull] string newName,
+           string newDescription)
         {
             Check.NotNull(strategy, nameof(strategy));
             Check.NotNullOrWhiteSpace(newName, nameof(newName));
@@ -42,11 +38,7 @@ namespace CGInnovation.ProjectZen.Strategies
                 throw new StrategyAlreadyExistsException(newName);
             }
             strategy.ChangeName(newName);
-        }
-        public void ChangeDescription([NotNull] Strategy strategy, 
-            string description)
-        {
-            strategy.ChangeDescription(description);
+            strategy.ChangeDescription(newDescription);
         }
     }
 }

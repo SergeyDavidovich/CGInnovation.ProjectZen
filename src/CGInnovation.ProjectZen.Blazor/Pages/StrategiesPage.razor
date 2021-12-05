@@ -149,11 +149,17 @@
                             </TextEdit>
                         </Field>
                     </Validation>
+                    <Validation MessageLocalizer="@LH.Localize">
+                        <Field>
+                            <FieldLabel>@L["Description"]</FieldLabel>
+                            <TextEdit @bind-Text="@EditingStrategy.Description">
+                                <Feedback>
+                                    <ValidationError/>
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
                 </Validations>
-                    <Field>
-                        <FieldLabel>@L["Description"]</FieldLabel>
-                        <TextEdit @bind-Text="@EditingStrategy.Description"/>
-                    </Field>
             </ModalBody>
             <ModalFooter>
                 <Button Color="Color.Secondary"

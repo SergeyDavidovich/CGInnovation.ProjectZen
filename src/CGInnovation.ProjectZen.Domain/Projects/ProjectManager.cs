@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Volo.Abp.Domain.Services;
 using JetBrains.Annotations;
 using Volo.Abp;
 
 namespace CGInnovation.ProjectZen.Projects
 {
-    /// <summary>
-    ///  forces to create an project and change name of an project in a controlled way. 
-    ///  The application layer will use these methods.
-    /// </summary>
     public class ProjectManager : DomainService
     {
         private IProjectRepository _projectRepository;
@@ -44,11 +36,11 @@ namespace CGInnovation.ProjectZen.Projects
             Check.NotNullOrWhiteSpace(newName, nameof(newName));
 
             var existingProject = await _projectRepository.FindByNameAsync(newName);
+
             if (existingProject != null && existingProject.Id != project.Id)
             {
                 throw new ProjectAlreadyExistsException(newName);
             }
-
             project.ChangeName(newName);
             project.ChangeDescription(newDescription);
         }
