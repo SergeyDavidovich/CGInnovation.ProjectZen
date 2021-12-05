@@ -9,14 +9,15 @@ using Volo.Abp.Domain.Services;
 
 namespace CGInnovation.ProjectZen.Strategies
 {
-    public class StrategyManager:DomainService
+    public class StrategyManager : DomainService
     {
         private readonly IStrategyRepository _strategyRepository;
         public StrategyManager(IStrategyRepository strategyRepository)
         {
             _strategyRepository = strategyRepository;
         }
-        public async Task<Strategy> CreateAsync([NotNull] string name, string description)
+        public async Task<Strategy> CreateAsync([NotNull] string name, 
+            string description)
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
 
@@ -25,9 +26,7 @@ namespace CGInnovation.ProjectZen.Strategies
             {
                 throw new StrategyAlreadyExistsException(name);
             }
-
             var strategy = new Strategy(GuidGenerator.Create(), name, description);
-
             return strategy;
         }
         public async Task ChangeNameAsync(
@@ -42,8 +41,12 @@ namespace CGInnovation.ProjectZen.Strategies
             {
                 throw new StrategyAlreadyExistsException(newName);
             }
-
             strategy.ChangeName(newName);
+        }
+        public void ChangeDescription([NotNull] Strategy strategy, 
+            string description)
+        {
+            strategy.ChangeDescription(description);
         }
     }
 }
