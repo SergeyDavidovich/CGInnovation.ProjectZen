@@ -8,5 +8,7 @@ namespace CGInnovation.ProjectZen.Projects
     public class ProjectDto : EntityDto<Guid>
     {
         public string Name { get; set; }
+        public string Description { get; set; }
+
     }
 }

@@ -53,7 +53,7 @@ namespace CGInnovation.ProjectZen.Projects
         [Authorize(ProjectZenPermissions.Projects.Create)]
         public async Task<ProjectDto> CreateAsync(CreateProjectDto input)
         {
-            var project = await _projectManager.CreateAsync(input.Name);
+            var project = await _projectManager.CreateAsync(input.Name, input.Description);
 
             await _projectRepository.InsertAsync(project);
 
@@ -67,7 +67,7 @@ namespace CGInnovation.ProjectZen.Projects
 
             if (project.Name != input.Name)
             {
-                await _projectManager.ChangeNameAsync(project, input.Name);
+                await _projectManager.ChangeAsync(project, input.Name, input.Description);
             }
             await _projectRepository.UpdateAsync(project);
         }

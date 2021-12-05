@@ -20,7 +20,7 @@ namespace CGInnovation.ProjectZen.Projects
         {
             _projectRepository = projectRepository;
         }
-        public async Task<Project> CreateAsync([NotNull] string name)
+        public async Task<Project> CreateAsync([NotNull] string name, string description)
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
 
@@ -32,12 +32,13 @@ namespace CGInnovation.ProjectZen.Projects
 
             return new Project(
                 GuidGenerator.Create(),
-                name);
+                name, description);
         }
 
-        public async Task ChangeNameAsync(
+        public async Task ChangeAsync(
             [NotNull] Project project,
-            [NotNull] string newName)
+            [NotNull] string newName,
+            string newDescription)
         {
             Check.NotNull(project, nameof(project));
             Check.NotNullOrWhiteSpace(newName, nameof(newName));
@@ -49,6 +50,7 @@ namespace CGInnovation.ProjectZen.Projects
             }
 
             project.ChangeName(newName);
+            project.ChangeDescription(newDescription);
         }
     }
 }

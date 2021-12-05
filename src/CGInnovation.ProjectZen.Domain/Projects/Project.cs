@@ -22,24 +22,38 @@ namespace CGInnovation.ProjectZen.Projects
             /* This constructor is for deserialization / ORM purpose */
         }
         public string Name { get; set; }
+        public string Description { get; set; }
         public Guid? TenantId { get; private set; }
 
-        internal Project(Guid id, [NotNull] string name)
+        internal Project(Guid id, [NotNull] string name, string description)
             : base(id)
         {
             SetName(name);
-        }
-
-        internal Project ChangeName([NotNull] string name)
-        {
-            SetName(name);
-            return this;
+            SetDescription(description);
         }
         private void SetName([NotNull] string name)
         {
             Name =
                 Check.NotNullOrWhiteSpace(name, nameof(name), 
                 maxLength: ProjectConsts.MaxNameLength);
+        }
+        private void SetDescription([NotNull] string name)
+        {
+            Description =
+                Check.NotNullOrWhiteSpace(name, nameof(name),
+                maxLength: ProjectConsts.MaxDescriptionLength);
+        }
+
+
+        internal Project ChangeName([NotNull] string name)
+        {
+            SetName(name);
+            return this;
+        }
+        internal Project ChangeDescription([NotNull] string description)
+        {
+            SetName(description);
+            return this;
         }
     }
 }

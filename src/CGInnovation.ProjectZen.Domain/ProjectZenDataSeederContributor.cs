@@ -84,15 +84,15 @@ namespace CGInnovation.ProjectZen
                        autoSave: true
                    );
             }
-
+            //todo: uncomment!!! 
 
             if (await _projectRepository.GetCountAsync() <= 0)
             {
                 await _projectRepository.InsertAsync(
-                    await _projectManager.CreateAsync("George Orwell"));
+                    await _projectManager.CreateAsync("Project 1", "Description 1"));
 
                 await _projectRepository.InsertAsync(
-                    await _projectManager.CreateAsync("Douglas Adams"));
+                    await _projectManager.CreateAsync("Project 2", "Description 2"));
             }
 
             if (await _strategyRepository.GetCountAsync() <= 0)

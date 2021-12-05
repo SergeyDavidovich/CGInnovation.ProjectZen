@@ -10,5 +10,8 @@ namespace CGInnovation.ProjectZen.Projects
         [Required]
         [StringLength(ProjectConsts.MaxNameLength)]
         public string Name { get; set; }
+
+        [StringLength(ProjectConsts.MaxDescriptionLength)]
+        public string Description { get; set; }
     }
 }
