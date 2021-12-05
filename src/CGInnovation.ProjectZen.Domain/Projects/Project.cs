@@ -52,7 +52,7 @@ namespace CGInnovation.ProjectZen.Projects
         }
         internal Project ChangeDescription([NotNull] string description)
         {
-            SetName(description);
+            SetDescription(description);
             return this;
         }
     }

@@ -84,7 +84,6 @@ namespace CGInnovation.ProjectZen
                        autoSave: true
                    );
             }
-            //todo: uncomment!!! 
 
             if (await _projectRepository.GetCountAsync() <= 0)
             {
