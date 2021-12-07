@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="CGInnovation.ProjectZen.Risks.Risk" BaseTypeListCollapsed="true">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Projects.Project" BaseTypeListCollapsed="true">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Strategies.Strategy">
+    <Position X="5.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Strategies.StrategyManager">
+    <Position X="5.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Projects.ProjectManager">
+    <Position X="3" Y="2.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Data.ProjectZenDbMigrationService">
+    <Position X="8.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Projects.ProjectAppService">
+    <Position X="3" Y="5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACgAkAAAAAIIAAAIA=</HashCode>
+      <FileName>Projects\ProjectAppService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Strategies.StrategyAppService">
+    <Position X="6.25" Y="5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAEgAAAAAIIAAAIA=</HashCode>
+      <FileName>Strategies\StrategyAppService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

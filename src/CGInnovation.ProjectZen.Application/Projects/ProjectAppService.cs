@@ -69,7 +69,6 @@ namespace CGInnovation.ProjectZen.Projects
             {
                 await _projectManager.ChangeAsync(project, input.Name, input.Description);
             }
-            //project.Name=input.Name;
             project.Description=input.Description;
 
             await _projectRepository.UpdateAsync(project);

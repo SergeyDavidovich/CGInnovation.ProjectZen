@@ -1,26 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="CGInnovation.ProjectZen.Risks.Risk">
-    <Position X="0.5" Y="1.75" Width="2.5" />
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CGInnovation.ProjectZen.Risks.Risk" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAQhEAQAAAAAAAAIAAAgAAAAAAA=</HashCode>
       <FileName>Risks\Risk.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="CGInnovation.ProjectZen.RisksInProjects.RiskInProject">
-    <Position X="3.25" Y="1.75" Width="2.25" />
+  <Class Name="CGInnovation.ProjectZen.Projects.Project" BaseTypeListCollapsed="true">
+    <Position X="3" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAAABAAAAAQIAAAgAAAAAAA=</HashCode>
-      <FileName>RisksInProjects\RiskInProject.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAACAAQACAAAAAAAAAAgQEAAAAA=</HashCode>
+      <FileName>Projects\Project.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Strategies.Strategy">
+    <Position X="5.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAACAAQACAAAAAAAAAAgQEAAAAA=</HashCode>
+      <FileName>Strategies\Strategy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CGInnovation.ProjectZen.Projects.Project">
-    <Position X="5.75" Y="1.75" Width="3" />
+  <Class Name="CGInnovation.ProjectZen.Strategies.StrategyManager">
+    <Position X="5.5" Y="3.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgQEAAAAA=</HashCode>
-      <FileName>Projects\Project.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAIAAAAA=</HashCode>
+      <FileName>Strategies\StrategyManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Projects.ProjectManager">
+    <Position X="3" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAggAAAAAAAIAAAAA=</HashCode>
+      <FileName>Projects\ProjectManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CGInnovation.ProjectZen.Data.ProjectZenDbMigrationService">
+    <Position X="8.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAABAMAAAAAAAAAAAQAAQAAABABAEAAgIAAIgA=</HashCode>
+      <FileName>Data\ProjectZenDbMigrationService.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
