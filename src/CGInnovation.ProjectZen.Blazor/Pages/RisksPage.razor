@@ -88,19 +88,18 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
                                 Field="@nameof(RiskDto.Likelihood)"
                                 Caption="@L["Likelihood"]">
                 </DataGridColumn>
-@*                <DataGridColumn TItem="RiskDto"
-                                Field="@nameof(RiskDto.CreationTime)"
-                                Caption="@L["Creating time"]">
-                </DataGridColumn>
-                <DataGridColumn TItem="RiskDto"
-                                Field="@nameof(RiskDto.LastModificationTime)"
-                                Caption="@L["Modification time"]">
-                </DataGridColumn>
-*@
+                @*                <DataGridColumn TItem="RiskDto"
+                    Field="@nameof(RiskDto.CreationTime)"
+                    Caption="@L["Creating time"]">
+                    </DataGridColumn>
+                    <DataGridColumn TItem="RiskDto"
+                    Field="@nameof(RiskDto.LastModificationTime)"
+                    Caption="@L["Modification time"]">
+                    </DataGridColumn>
+                *@
             </DataGridColumns>
         </DataGrid>
     </CardBody>
-
 </Card>
 
 <Modal @ref="@CreateModal">
@@ -110,7 +109,7 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
                 <ModalTitle>@L["New Risk"]</ModalTitle>
                 <CloseButton Clicked="CloseCreateModalAsync" />
             </ModalHeader>
-
+            @*Create*@
             <ModalBody>
                 <Validations @ref="@CreateValidationsRef" Model="@NewEntity" ValidateOnLoad="false">
                     <Validation MessageLocalizer="@LH.Localize">
@@ -152,9 +151,21 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
                             }
                         </Select>
                     </Field>
+                    <Field>
+                        <FieldLabel>@L["Likelihood"]</FieldLabel>
+                        <Select TValue="Likelihood" @bind-SelectedValue="@NewEntity.Likelihood">
+                            @foreach (Likelihood riskLikelihoodValue in Enum.GetValues(typeof(Likelihood)))
+                            {
+                                <SelectItem TValue="Likelihood" Value="@((Likelihood) riskLikelihoodValue)">
+                                    @L[$"{riskLikelihoodValue}"]
+                                </SelectItem>
+                            }
+                        </Select>
+                    </Field>
+
                 </Validations>
             </ModalBody>
-
+            @*End create*@
             <ModalFooter>
                 <Button Color="Color.Secondary"
                         Clicked="CloseCreateModalAsync">
@@ -201,15 +212,36 @@ PagedAndSortedResultRequestDto, CreateUpdateRiskDto>
                             }
                         </Select>
                     </Field>
-                    @*<Field>
-                        <FieldLabel>@L["PublishDate"]</FieldLabel>
-                        <DateEdit TValue="DateTime" @bind-Date="EditingEntity.PublishDate"/>
-                        </Field>
-                        <Field>
-                        <FieldLabel>@L["Price"]</FieldLabel>
-                        <NumericEdit TValue="float" @bind-Value="EditingEntity.Price"/>
-                        </Field>
-                    *@
+                    <Field>
+                        <FieldLabel>@L["Occured date"]</FieldLabel>
+                        <DateEdit TValue="DateTime" @bind-Date="EditingEntity.OccuredDate" />
+                    </Field>
+                    <Field>
+                        <Check TValue="bool" @bind-Checked="EditingEntity.Occures">Occures</Check>
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["Impact"]</FieldLabel>
+                        <Select TValue="Impact" @bind-SelectedValue="@EditingEntity.Impact">
+                            @foreach (Impact riskImpactValue in Enum.GetValues(typeof(Impact)))
+                            {
+                                <SelectItem TValue="Impact" Value="@((Impact) riskImpactValue)">
+                                    @L[$"{riskImpactValue}"]
+                                </SelectItem>
+                            }
+                        </Select>
+                    </Field>
+                    <Field>
+                        <FieldLabel>@L["Likelihood"]</FieldLabel>
+                        <Select TValue="Likelihood" @bind-SelectedValue="@EditingEntity.Likelihood">
+                            @foreach (Likelihood riskLikelihoodValue in Enum.GetValues(typeof(Likelihood)))
+                            {
+                                <SelectItem TValue="Likelihood" Value="@((Likelihood) riskLikelihoodValue)">
+                                    @L[$"{riskLikelihoodValue}"]
+                                </SelectItem>
+                            }
+                        </Select>
+                    </Field>
+
                 </Validations>
             </ModalBody>
             <ModalFooter>
