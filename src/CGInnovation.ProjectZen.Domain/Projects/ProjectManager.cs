@@ -22,15 +22,10 @@ namespace CGInnovation.ProjectZen.Projects
                 throw new ProjectAlreadyExistsException(name);
             }
 
-            return new Project(
-                GuidGenerator.Create(),
-                name, description);
+            return new Project(GuidGenerator.Create(), name, description);
         }
 
-        public async Task ChangeAsync(
-            [NotNull] Project project,
-            [NotNull] string newName,
-            string newDescription)
+        public async Task ChangeAsync([NotNull] Project project, [NotNull] string newName, string newDescription)
         {
             Check.NotNull(project, nameof(project));
             Check.NotNullOrWhiteSpace(newName, nameof(newName));

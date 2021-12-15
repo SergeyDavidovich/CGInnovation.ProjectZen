@@ -24,6 +24,8 @@ namespace CGInnovation.ProjectZen.Projects
         public string Name { get; set; }
         public string Description { get; set; }
         public Guid? TenantId { get; private set; }
+        public Guid StrategyId { get; set; }
+
 
         internal Project(Guid id, [NotNull] string name, string description)
             : base(id)

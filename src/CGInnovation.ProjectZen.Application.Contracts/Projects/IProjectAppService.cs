@@ -10,13 +10,10 @@ namespace CGInnovation.ProjectZen.Projects
     public interface IProjectAppService : IApplicationService
     {
         Task<ProjectDto> GetAsync(Guid id);
-
         Task<PagedResultDto<ProjectDto>> GetListAsync(GetProjectListDto input);
-
+        Task<ListResultDto<StrategyLookupDto>> GetStrategyLookupAsync();
         Task<ProjectDto> CreateAsync(CreateProjectDto input);
-
         Task UpdateAsync(Guid id, UpdateProjectDto input);
-
         Task DeleteAsync(Guid id);
     }
 }

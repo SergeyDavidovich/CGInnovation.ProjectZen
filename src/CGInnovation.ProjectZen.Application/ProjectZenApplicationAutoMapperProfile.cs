@@ -23,6 +23,7 @@ namespace CGInnovation.ProjectZen
             
             CreateMap<StrategyDto, UpdateStrategyDto>();
 
+            CreateMap<Strategy, StrategyLookupDto>();
         }
     }
 }

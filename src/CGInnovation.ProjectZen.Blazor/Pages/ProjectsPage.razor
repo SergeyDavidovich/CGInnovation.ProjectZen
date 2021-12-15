@@ -1,7 +1,7 @@
 ﻿@page "/projects"
 
-@using CGInnovation.ProjectZen.Projects 
-@using CGInnovation.ProjectZen.Localization 
+@using CGInnovation.ProjectZen.Projects
+@using CGInnovation.ProjectZen.Localization
 @using Volo.Abp.AspNetCore.Components.Web
 @using CGInnovation.ProjectZen.Permissions
 
@@ -22,7 +22,7 @@
                     @if (CanCreateProject)
                     {
                         <Button Color="Color.Primary"
-                                Clicked="OpenCreateProjectModal">
+                            Clicked="OpenCreateProjectModal">
                             @L["Add Project"]
                         </Button>
                     }
@@ -68,8 +68,10 @@
                 <DataGridColumn TItem="ProjectDto"
                                 Field="@nameof(ProjectDto.Name)"
                                 Caption="@L["Name"]"></DataGridColumn>
-
-                                <DataGridColumn TItem="ProjectDto"
+                <DataGridColumn TItem="ProjectDto"
+                                Field="@nameof(ProjectDto.StrategyName)"
+                                Caption="@L["Strategy"]"></DataGridColumn>
+                <DataGridColumn TItem="ProjectDto"
                                 Field="@nameof(ProjectDto.Description)"
                                 Caption="@L["Description"]"></DataGridColumn>
             </DataGridColumns>
@@ -91,7 +93,7 @@
                             <FieldLabel>@L["Name"]</FieldLabel>
                             <TextEdit @bind-Text="@NewProject.Name">
                                 <Feedback>
-                                    <ValidationError/>
+                                    <ValidationError />
                                 </Feedback>
                             </TextEdit>
                         </Field>
@@ -101,7 +103,7 @@
                             <FieldLabel>@L["Description"]</FieldLabel>
                             <TextEdit @bind-Text="@NewProject.Description">
                                 <Feedback>
-                                    <ValidationError/>
+                                    <ValidationError />
                                 </Feedback>
                             </TextEdit>
                         </Field>
@@ -128,9 +130,9 @@
     <ModalContent IsCentered="true">
         <Form>
             <ModalHeader>
-                        <ModalTitle>@EditingProject.Name</ModalTitle>
-                        <CloseButton Clicked="CloseEditProjectModal" />
-                    </ModalHeader>
+                <ModalTitle>@EditingProject.Name</ModalTitle>
+                <CloseButton Clicked="CloseEditProjectModal" />
+            </ModalHeader>
             <ModalBody>
                 <Validations @ref="@EditValidationsRef" Model="@EditingProject" ValidateOnLoad="false">
                     <Validation MessageLocalizer="@LH.Localize">
@@ -138,17 +140,17 @@
                             <FieldLabel>@L["Name"]</FieldLabel>
                             <TextEdit @bind-Text="@EditingProject.Name">
                                 <Feedback>
-                                    <ValidationError/>
+                                    <ValidationError />
                                 </Feedback>
                             </TextEdit>
                         </Field>
                     </Validation>
-                     <Validation MessageLocalizer="@LH.Localize">
+                    <Validation MessageLocalizer="@LH.Localize">
                         <Field>
                             <FieldLabel>@L["Description"]</FieldLabel>
                             <TextEdit @bind-Text="@EditingProject.Description">
                                 <Feedback>
-                                    <ValidationError/>
+                                    <ValidationError />
                                 </Feedback>
                             </TextEdit>
                         </Field>
