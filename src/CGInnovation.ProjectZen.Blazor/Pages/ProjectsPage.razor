@@ -38,7 +38,7 @@
                   ShowPager="true"
                   PageSize="PageSize">
             <DataGridColumns>
-                <DataGridColumn Width="150px"
+                <DataGridColumn Width="150px" 
                                 TItem="ProjectDto"
                                 Field="@nameof(ProjectDto.Id)"
                                 Sortable="false"
@@ -108,6 +108,20 @@
                             </TextEdit>
                         </Field>
                     </Validation>
+                    <Validation MessageLocalizer="@LH.Localize">
+                        <Field>
+                            <FieldLabel>@L["Strategy"]</FieldLabel>
+                            <Select TValue="Guid" @bind-SelectedValue="@NewProject.StrategyId">
+                                <SelectItem TValue="Guid" Value="Guid.Empty">"@L["PickUpStrategy"]"</SelectItem>
+                                @foreach (var strategy in strategyList)
+                                {
+                                    <SelectItem TValue="Guid" Value="@strategy.Id">
+                                        @strategy.Name
+                                    </SelectItem>
+                                }
+                            </Select>
+                        </Field>
+                    </Validation>
                 </Validations>
             </ModalBody>
             <ModalFooter>
@@ -131,7 +145,6 @@
         <Form>
             <ModalHeader>
                 <ModalTitle>@EditingProject.Name</ModalTitle>
-                <CloseButton Clicked="CloseEditProjectModal" />
             </ModalHeader>
             <ModalBody>
                 <Validations @ref="@EditValidationsRef" Model="@EditingProject" ValidateOnLoad="false">
@@ -155,6 +168,19 @@
                             </TextEdit>
                         </Field>
                     </Validation>
+                    <Validation MessageLocalizer="@LH.Localize">
+                        <Field>
+                            <FieldLabel>@L["Strategy"]</FieldLabel>
+                            <Select TValue ="Guid" @bind-SelectedValue="@EditingProject.StrategyId">
+                                @foreach (var strategy in strategyList)
+                                {
+                                    <SelectItem TValue="Guid" Value="@strategy.Id">
+                                        @strategy.Name
+                                    </SelectItem>
+                                }
+                            </Select>
+                        </Field>
+                    </Validation>
                 </Validations>
             </ModalBody>
             <ModalFooter>
@@ -165,7 +191,7 @@
                 <Button Color="Color.Primary"
                         Type="@ButtonType.Submit"
                         PreventDefaultOnSubmit="true"
-                        Clicked="UpdateAuthorAsync">
+                        Clicked="UpdateProjectAsync">
                     @L["Save"]
                 </Button>
             </ModalFooter>

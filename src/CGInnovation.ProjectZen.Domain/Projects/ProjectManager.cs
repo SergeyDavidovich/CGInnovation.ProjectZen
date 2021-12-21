@@ -2,6 +2,7 @@
 using Volo.Abp.Domain.Services;
 using JetBrains.Annotations;
 using Volo.Abp;
+using System;
 
 namespace CGInnovation.ProjectZen.Projects
 {
@@ -12,7 +13,10 @@ namespace CGInnovation.ProjectZen.Projects
         {
             _projectRepository = projectRepository;
         }
-        public async Task<Project> CreateAsync([NotNull] string name, string description)
+        public async Task<Project> CreateAsync(
+            [NotNull] string name,
+            string description,
+            [NotNull] Guid strategyId)
         {
             Check.NotNullOrWhiteSpace(name, nameof(name));
 
@@ -22,10 +26,20 @@ namespace CGInnovation.ProjectZen.Projects
                 throw new ProjectAlreadyExistsException(name);
             }
 
-            return new Project(GuidGenerator.Create(), name, description);
+            var result = new Project(
+                GuidGenerator.Create(), 
+                name, 
+                description, 
+                strategyId);
+
+            return result;
         }
 
-        public async Task ChangeAsync([NotNull] Project project, [NotNull] string newName, string newDescription)
+        public async Task ChangeAsync(
+            [NotNull] Project project, 
+            [NotNull] string newName, 
+            string newDescription,
+            [NotNull]Guid newStrategyId)
         {
             Check.NotNull(project, nameof(project));
             Check.NotNullOrWhiteSpace(newName, nameof(newName));
@@ -38,6 +52,7 @@ namespace CGInnovation.ProjectZen.Projects
             }
             project.ChangeName(newName);
             project.ChangeDescription(newDescription);
+            project.StrategyId = newStrategyId;
         }
     }
 }

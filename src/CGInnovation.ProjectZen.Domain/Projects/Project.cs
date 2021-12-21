@@ -10,34 +10,32 @@ using Volo.Abp.MultiTenancy;
 
 namespace CGInnovation.ProjectZen.Projects
 {
-    /// <summary>
-    /// Inherited from FullAuditedAggregateRoot<Guid> which makes the entity soft delete 
-    /// (that means when you delete it, it is not deleted in the database, but just marked as deleted) 
-    /// with all the auditing properties.
-    /// </summary>
     public class Project : AuditedAggregateRoot<Guid>, IMultiTenant
     {
         private Project()
         {
             /* This constructor is for deserialization / ORM purpose */
         }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        [NotNull] public string Name { get; set; }
+        [NotNull] public string Description { get; set; }
         public Guid? TenantId { get; private set; }
         public Guid StrategyId { get; set; }
 
-
-        internal Project(Guid id, [NotNull] string name, string description)
+        internal Project(Guid id, [NotNull] string name,
+            string description, [NotNull] Guid strategyId)
             : base(id)
         {
             SetName(name);
             SetDescription(description);
+            SetStrategyId(strategyId);
         }
         private void SetName([NotNull] string name)
         {
             Name =
-                Check.NotNullOrWhiteSpace(name, nameof(name), 
-                maxLength: ProjectConsts.MaxNameLength);
+                Check.NotNullOrWhiteSpace(
+                    name,
+                    nameof(name),
+                    maxLength: ProjectConsts.MaxNameLength);
         }
         private void SetDescription([NotNull] string name)
         {
@@ -45,7 +43,11 @@ namespace CGInnovation.ProjectZen.Projects
                 Check.NotNullOrWhiteSpace(name, nameof(name),
                 maxLength: ProjectConsts.MaxDescriptionLength);
         }
-
+        private void SetStrategyId([NotNull] Guid strategyId)
+        {
+            StrategyId =
+                Check.NotNull(strategyId, nameof(strategyId));
+        }
 
         internal Project ChangeName([NotNull] string name)
         {
@@ -55,6 +57,11 @@ namespace CGInnovation.ProjectZen.Projects
         internal Project ChangeDescription([NotNull] string description)
         {
             SetDescription(description);
+            return this;
+        }
+        internal Project ChangeStrategyId([NotNull] Guid strategyId)
+        {
+            SetStrategyId(strategyId);
             return this;
         }
     }

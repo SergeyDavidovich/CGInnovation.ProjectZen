@@ -15,6 +15,7 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
     {
         #region declarations
         private IReadOnlyList<ProjectDto> ProjectList { get; set; }
+        private IReadOnlyList<StrategyLookupDto> strategyList = Array.Empty<StrategyLookupDto>();
         private int PageSize { get; } = LimitedResultRequestDto.DefaultMaxResultCount;
         private int CurrentPage { get; set; }
         private string CurrentSorting { get; set; }
@@ -41,8 +42,13 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
         }
         protected override async Task OnInitializedAsync()
         {
+#if DEBUG
+            await Task.Delay(0);
+#endif
+
             await SetPermissionsAsync();
             await GetProjectsAsync();
+            strategyList = (await ProjectAppService.GetStrategyLookupAsync()).Items;
         }
         private async Task SetPermissionsAsync()
         {
@@ -119,7 +125,6 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
         {
             EditProjectModal.Hide();
         }
-
         private async Task CreateProjectAsync()
         {
             if (CreateValidationsRef.ValidateAll())
@@ -129,7 +134,7 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
                 CreateProjectModal.Hide();
             }
         }
-        private async Task UpdateAuthorAsync()
+        private async Task UpdateProjectAsync()
         {
             if (EditValidationsRef.ValidateAll())
             {

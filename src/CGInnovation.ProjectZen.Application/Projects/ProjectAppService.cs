@@ -28,7 +28,8 @@ namespace CGInnovation.ProjectZen.Projects
         public async Task<ProjectDto> GetAsync(Guid id)
         {
             var project = await _projectRepository.GetAsync(id);
-            return ObjectMapper.Map<Project, ProjectDto>(project);
+            var result = ObjectMapper.Map<Project, ProjectDto>(project);
+            return result;
         }
         public async Task<PagedResultDto<ProjectDto>> GetListAsync(GetProjectListDto input)
         {
@@ -70,7 +71,8 @@ namespace CGInnovation.ProjectZen.Projects
                                   Id = project.Id,
                                   Name = project.Name,
                                   Description = project.Description,
-                                  StrategyName = strategy.Name
+                                  StrategyName = strategy.Name,
+                                  StrategyId = strategy.Id
                               };
 
             var totalCount = input.Filter == null
@@ -98,7 +100,9 @@ namespace CGInnovation.ProjectZen.Projects
         [Authorize(ProjectZenPermissions.Projects.Create)]
         public async Task<ProjectDto> CreateAsync(CreateProjectDto input)
         {
-            var project = await _projectManager.CreateAsync(input.Name, input.Description);
+            var project = 
+                await _projectManager.CreateAsync(
+                    input.Name, input.Description, input.StrategyId);
 
             await _projectRepository.InsertAsync(project);
 
@@ -112,8 +116,9 @@ namespace CGInnovation.ProjectZen.Projects
 
             if (project.Name != input.Name)
             {
-                await _projectManager.ChangeAsync(project, input.Name, input.Description);
+                await _projectManager.ChangeAsync(project, input.Name, input.Description, input.StrategyId);
             }
+            project.StrategyId=input.StrategyId;
             project.Description = input.Description;
 
             await _projectRepository.UpdateAsync(project);

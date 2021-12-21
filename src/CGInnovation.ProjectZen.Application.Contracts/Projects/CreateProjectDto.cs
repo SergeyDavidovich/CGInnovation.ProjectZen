@@ -14,5 +14,7 @@ namespace CGInnovation.ProjectZen.Projects
         [StringLength(ProjectConsts.MaxDescriptionLength)]
         public string Description { get; set; }
 
+        [Required]
+        public Guid StrategyId { get; set; }
     }
 }

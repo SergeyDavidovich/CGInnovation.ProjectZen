@@ -31,7 +31,8 @@
     "Menu:Projects": "Projects",
     "Projects": "Projects",
     "ProjectsDeletionConfirmationMessage": "Are you sure to delete the project '{0}'?",
-    "NewProject": "New project"
-
+    "NewProject": "New project",
+    "PickUpStrategy": "Pick up strategy",
+    "Strategy" : "Strategy of project"
   }
 }

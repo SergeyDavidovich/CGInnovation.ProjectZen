@@ -113,7 +113,7 @@ namespace CGInnovation.ProjectZen.EntityFrameworkCore
 
                 b.ConfigureByConvention();
 
-                b.Property(x => x.Name).IsRequired();
+                b.Property(x => x.Name).IsRequired(false);
 
                 b.HasIndex(x => x.Name);
             });

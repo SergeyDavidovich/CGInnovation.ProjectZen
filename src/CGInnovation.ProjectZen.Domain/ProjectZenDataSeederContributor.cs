@@ -88,10 +88,10 @@ namespace CGInnovation.ProjectZen
             if (await _projectRepository.GetCountAsync() <= 0)
             {
                 await _projectRepository.InsertAsync(
-                    await _projectManager.CreateAsync("Project 1", "Description 1"));
+                    await _projectManager.CreateAsync("Project 1", "Description 1", Guid.NewGuid()));
 
                 await _projectRepository.InsertAsync(
-                    await _projectManager.CreateAsync("Project 2", "Description 2"));
+                    await _projectManager.CreateAsync("Project 2", "Description 2", Guid.NewGuid()));
             }
 
             if (await _strategyRepository.GetCountAsync() <= 0)
