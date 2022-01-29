@@ -1,12 +1,14 @@
 ﻿using System;
-//using System.Collections.Generic;
 //using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
 
 using Volo.Abp.MultiTenancy;
-
 using Volo.Abp.Domain.Entities.Auditing;
+using CGInnovation.ProjectZen.Projects;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using CGInnovation.ProjectZen.RisksProjects;
 
 namespace CGInnovation.ProjectZen.Risks
 {
@@ -15,8 +17,9 @@ namespace CGInnovation.ProjectZen.Risks
     /// (like CreationTime, CreatorId, LastModificationTime...) on top of the AggregateRoot class. 
     /// ABP automatically manages these properties for you.
     /// </summary>
-    public class Risk : AuditedAggregateRoot<Guid>, IMultiTenant 
+    public class Risk : AuditedAggregateRoot<Guid>//, IMultiTenant 
     {
+        #region  properties
         public string Name { get; set; }
         public bool Occures { get; set; }
         public DateTime OccuredDate { get; set; }
@@ -25,7 +28,10 @@ namespace CGInnovation.ProjectZen.Risks
         public Impact Impact { get; set; }
         public Likelihood Likelihood { get; set; }
         public Guid? TenantId { get; private set; }
+        public ICollection<Project> Projects { get; set; }
+        public ICollection<RiskProject> RisksOfProject { get; set; }
 
+        #endregion
         public Risk()
         {
             //This parameterless constructor is needed for ORMs
@@ -36,21 +42,17 @@ namespace CGInnovation.ProjectZen.Risks
             bool occures,
             DateTime occuredDate,
             Mitigation mitigation,
-            string mitigationDescription,
-            Guid? tenantId)
+            string mitigationDescription)
+
+            //Guid? tenantId)
         {
             Name = name;
             Occures = occures;
             OccuredDate = occuredDate;
             Mitigation = mitigation;
             MitigationDescription = mitigationDescription;
-            TenantId = tenantId; //Set in the constructor
+            //TenantId = tenantId;
         }
-
-        //public DateTime CtreateDate { get; set; }
-        //public DateTime UpdateDate { get; set; }
-        //public string CreatedBy { get; set; }
-        //public string UpdatedBy { get; set; }
     }
 }
 

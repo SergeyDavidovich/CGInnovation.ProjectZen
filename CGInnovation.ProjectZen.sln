@@ -39,8 +39,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CGInnovation.ProjectZen.Bla
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{0A36AD06-1640-4B0D-9DB2-6A57C98C8C22}"
 	ProjectSection(SolutionItems) = preProject
+		docs\Bubble-use-case.pdf = docs\Bubble-use-case.pdf
+		docs\bubble_page.pdf = docs\bubble_page.pdf
 		docs\DomainObjects.vsdx = docs\DomainObjects.vsdx
 		docs\Zen.Project Essentials.docx = docs\Zen.Project Essentials.docx
+		docs\ZenProject.eapx = docs\ZenProject.eapx
 	EndProjectSection
 EndProject
 Global

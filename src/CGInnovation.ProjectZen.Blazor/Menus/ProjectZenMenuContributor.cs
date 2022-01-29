@@ -32,7 +32,7 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
             }
         }
 
-        private Task ConfigureMainMenuAsync(MenuConfigurationContext context)
+        private async Task<Task> ConfigureMainMenuAsync(MenuConfigurationContext context)
         {
             var l = context.GetLocalizer<ProjectZenResource>();
 
@@ -40,42 +40,51 @@ namespace CGInnovation.ProjectZen.Blazor.Menus
                 0,
                 new ApplicationMenuItem(
                     ProjectZenMenus.Home,
-                    l["Home"],
+                    l["Menu:Home"],
                     "/",
                     icon: "fas fa-home"
                 )
             );
-            context.Menu.Items.Insert(
+            if (await context.IsGrantedAsync(ProjectZenPermissions.Projects.Default))
+            {
+
+                context.Menu.Items.Insert(
                 1,
                 new ApplicationMenuItem(
                     ProjectZenMenus.Risk,
-                    l["Risks"],
+                    l["Menu:Risks"],
                     "/risks",
                     icon: "fa fa-book")
             );
 
-            //if (await context.IsGrantedAsync(ProjectZenPermissions.Projects.Default))
-            //{
-            context.Menu.Items.Insert(
-                2,
-                new ApplicationMenuItem(
-                ProjectZenMenus.Project,
-                l["Projects"],
-                url: "/projects",
-                icon: "fa fa-book")
-                );
-            //}
+                context.Menu.Items.Insert(
+                    2,
+                    new ApplicationMenuItem(
+                    ProjectZenMenus.Project,
+                    l["Menu:Projects"],
+                    url: "/projects",
+                    icon: "fa fa-book")
+                    );
 
-            context.Menu.Items.Insert(
-               3,
-               new ApplicationMenuItem(
-               ProjectZenMenus.Strategy,
-               l["Strategies"],
-               url: "/strategies",
-               icon: "fa fa-book")
-               );
+                context.Menu.Items.Insert(
+                   3,
+                   new ApplicationMenuItem(
+                   ProjectZenMenus.Strategy,
+                   l["Menu:Strategies"],
+                   url: "/strategies",
+                   icon: "fa fa-book")
+                   );
+
+                context.Menu.Items.Insert(
+                    4,
+                    new ApplicationMenuItem(
+                    ProjectZenMenus.RiskMonitor,
+                    l["Menu:RiskMonitor"],
+                    url: "/riskmonitor",
+                    icon: "fa fa-book")
+                    );
+            }
             return Task.CompletedTask;
-
         }
 
         private Task ConfigureUserMenuAsync(MenuConfigurationContext context)

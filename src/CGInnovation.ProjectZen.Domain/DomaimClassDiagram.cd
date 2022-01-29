@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="CGInnovation.ProjectZen.Risks.Risk" BaseTypeListCollapsed="true">
     <Position X="0.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAAQhEAQAAAAAAAAIAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAIAAAAAAABAAQhEAQAAAAAAAAIAAAgAAAAAQA=</HashCode>
       <FileName>Risks\Risk.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="CGInnovation.ProjectZen.Projects.Project" BaseTypeListCollapsed="true">
-    <Position X="3" Y="0.5" Width="2" />
+    <Position X="5.25" Y="6.25" Width="4.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAAACAAQACAAAAAAAAAAgQEAAAAA=</HashCode>
+      <HashCode>EQAAAAEJAAAgAAAAAAoCEAQACAAAAAAIAAAgQEAAAAA=</HashCode>
       <FileName>Projects\Project.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -32,7 +34,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CGInnovation.ProjectZen.Projects.ProjectManager">
-    <Position X="3" Y="3.75" Width="2" />
+    <Position X="0.5" Y="5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAggAAAAAAAIAAAAA=</HashCode>
       <FileName>Projects\ProjectManager.cs</FileName>

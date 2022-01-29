@@ -1,7 +1,6 @@
 {
   "culture": "en",
   "texts": {
-    "Menu:Home": "Home",
     "Welcome": "Welcome",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
 
@@ -22,17 +21,19 @@
     "Permission:Strategies.Edit": "Editing the strategies",
     "Permission:Strategies.Delete": "Deleting the strategies",
 
-
-
     "ProjectZen:00001": "There is already a project with the same name: {name}",
     "ProjectZen:00002": "There is already a strategy with the same name: {name}",
 
-
+    "Menu:Home": "Home",
+    "Menu:Risks": "Risks",
     "Menu:Projects": "Projects",
-    "Projects": "Projects",
+    "Menu:Strategies": "Strategies",
+    "Menu:RiskMonitor": "Risks monitor",
+
+    //"Projects": "Projects Jopa",
     "ProjectsDeletionConfirmationMessage": "Are you sure to delete the project '{0}'?",
     "NewProject": "New project",
     "PickUpStrategy": "Pick up strategy",
-    "Strategy" : "Strategy of project"
+    "Strategy": "Strategy of project"
   }
 }
