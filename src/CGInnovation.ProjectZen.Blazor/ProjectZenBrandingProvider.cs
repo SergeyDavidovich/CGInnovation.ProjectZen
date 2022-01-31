@@ -6,6 +6,6 @@ namespace CGInnovation.ProjectZen.Blazor
     [Dependency(ReplaceServices = true)]
     public class ProjectZenBrandingProvider : DefaultBrandingProvider
     {
-        public override string AppName => "ProjectZen";
+        public override string AppName => "ZEN Project";
     }
 }
