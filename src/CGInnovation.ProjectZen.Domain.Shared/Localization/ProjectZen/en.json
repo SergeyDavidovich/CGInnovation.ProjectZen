@@ -2,7 +2,7 @@
   "culture": "en",
   "texts": {
     "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "LongWelcomeMessage": "Welcome to the risk monitoring system for your bussines",
 
     "Permission:ProjectZen": "Project Zen",
 
@@ -21,6 +21,11 @@
     "Permission:Strategies.Edit": "Editing the strategies",
     "Permission:Strategies.Delete": "Deleting the strategies",
 
+    "Permission:RiskProject": "Risks in projects Management",
+    "Permission:RiskProject.Assign": "Assign Risks in Project",
+    "Permission:RiskProject.Remove": "Remove Risks from Project",
+    "Permission:RiskProject.Edit": "Edit Risks in Project",
+
     "ProjectZen:00001": "There is already a project with the same name: {name}",
     "ProjectZen:00002": "There is already a strategy with the same name: {name}",
 
@@ -30,7 +35,6 @@
     "Menu:Strategies": "Strategies",
     "Menu:RiskMonitor": "Risks monitor",
 
-    //"Projects": "Projects Jopa",
     "ProjectsDeletionConfirmationMessage": "Are you sure to delete the project '{0}'?",
     "NewProject": "New project",
     "PickUpStrategy": "Pick up strategy",

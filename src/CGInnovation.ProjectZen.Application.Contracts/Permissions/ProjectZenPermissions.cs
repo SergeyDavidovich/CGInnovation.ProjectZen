@@ -1,5 +1,8 @@
 ﻿namespace CGInnovation.ProjectZen.Permissions
 {
+    /// <summary>
+    /// Permissions names grouped on classes
+    /// </summary>
     public static class ProjectZenPermissions
     {
         public const string GroupName = "ProjectZen";
@@ -23,6 +26,13 @@
             public const string Create = Default + ".Create";
             public const string Edit = Default + ".Edit";
             public const string Delete = Default + ".Delete";
+        }
+        public class RisksProjects
+        {
+            public const string Default = GroupName + ".RisksProjects";
+            public const string Assign = Default + ".Assign";
+            public const string Edit = Default + ".Edit";
+            public const string Remove = Default + ".Remove";
         }
     }
 }

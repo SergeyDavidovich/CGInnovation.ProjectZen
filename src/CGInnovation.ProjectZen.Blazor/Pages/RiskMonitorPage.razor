@@ -1,5 +1,17 @@
 ﻿@page "/riskmonitor"
 
+@using CGInnovation.ProjectZen.Projects
+@using CGInnovation.ProjectZen.Localization
+@using CGInnovation.ProjectZen.RisksProjects
+@using Volo.Abp.AspNetCore.Components.Web
+@using CGInnovation.ProjectZen.Permissions
+
+@inherits ProjectZenComponentBase
+@inject IProjectAppService ProjectAppService
+@inject IRisksProjectAppService RisksProjectAppService
+@inject AbpBlazorMessageLocalizerHelper<ProjectZenResource> LH
+
+
 <h3>Risk monitor</h3>
 
 @code {
