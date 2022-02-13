@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 
-// file:C:\GitHubMy\CGInnovation.ProjectZen\docs\ZenProject.eapx
-
 namespace CGInnovation.ProjectZen.RisksProjects
 {
+    /// <summary>
+    /// This interface reflects Use Cases of Presentation Layer
+    /// </summary>
     public interface IRisksProjectAppService : IApplicationService
     {
         Task<List<StrategyDto>> GetSrategiesListAsync();
