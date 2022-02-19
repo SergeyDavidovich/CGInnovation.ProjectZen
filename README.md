@@ -1,2 +1,2 @@
-## Risk monitoring system for your bussines
+## Risk monitoring system for your business
 <img src="RiskMonitor.png"/>
