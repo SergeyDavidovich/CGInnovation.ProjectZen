@@ -96,7 +96,6 @@ namespace CGInnovation.ProjectZen.Projects
             return nameList;
         }
 
-
         [Authorize(ProjectZenPermissions.Projects.Create)]
         public async Task<ProjectDto> CreateAsync(CreateProjectDto input)
         {
