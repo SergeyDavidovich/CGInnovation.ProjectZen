@@ -6,12 +6,14 @@ using Volo.Abp.Application.Dtos;
 
 namespace CGInnovation.ProjectZen.RisksInProjects
 {
-    public class RisksInProjectsDto : EntityDto<Guid>
+    public class RiskProjectDto : AuditedEntityDto
     {
         public Guid RiskId { get; set; }
         public Guid ProjectId { get; set; }
         public Guid? TenantId { get; set; }
         public Mitigation Mitigation { get; set; }
-        public bool IsDeleted { get; set; }
+        public string MitigationDescription { get; set; }
+        public Impact Impact { get; set; }
+        public Likelihood Likelihood { get; set; }
     }
 }

@@ -21,13 +21,13 @@
     <TypeIdentifier />
   </Class>
   <Class Name="CGInnovation.ProjectZen.Data.ProjectZenDbMigrationService">
-    <Position X="8.5" Y="0.5" Width="3.25" />
+    <Position X="8" Y="0.5" Width="2.75" />
     <TypeIdentifier />
   </Class>
   <Class Name="CGInnovation.ProjectZen.Projects.ProjectAppService">
-    <Position X="3" Y="5" Width="2.75" />
+    <Position X="1" Y="5" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACgAkAAAAAIIAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACgEkAAAEAIIAAAIA=</HashCode>
       <FileName>Projects\ProjectAppService.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
