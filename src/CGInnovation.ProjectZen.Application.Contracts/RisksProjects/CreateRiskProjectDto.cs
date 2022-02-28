@@ -11,12 +11,13 @@ namespace CGInnovation.ProjectZen.RisksProjects
         [Required]
         public Guid RiskId { get; private set; }
         [Required]
-
         public Guid ProjectId { get; private set; }
         [Required]
-
         public Guid? TenantId { get; private set; }
         [Required]
-        public Mitigation Mitigation { get; private set; }
+        public Mitigation Mitigation { get; set; }
+        public Impact Impact { get; set; } 
+        public Likelihood Likelihood { get; set; } 
+        public DateTime OccuredDate { get; set; } 
     }
 }

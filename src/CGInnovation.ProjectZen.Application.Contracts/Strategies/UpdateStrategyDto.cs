@@ -10,7 +10,6 @@ namespace CGInnovation.ProjectZen.Strategies
         [Required]
         [StringLength(StrategyConsts.MaxNameLength)]
         public string Name { get; set; }
-
         public string Description { get; set; }
     }
 }
