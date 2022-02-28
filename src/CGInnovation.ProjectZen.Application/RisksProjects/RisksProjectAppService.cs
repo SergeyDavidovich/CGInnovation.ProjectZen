@@ -11,12 +11,12 @@ namespace CGInnovation.ProjectZen.RisksProjects
 {
     public class RisksProjectAppService : ProjectZenAppService, IRiskProjectAppService
     {
-        public void CreateRiskProjectAsync(RiskProjectDto riskProject)
+        public void CreateRiskProjectAsync(CreateRiskProjectDto riskProject)
         {
             throw new NotImplementedException();
         }
 
-        public Task<RiskProjectDto> EditRiskProject(RiskProjectDto riskProject)
+        public Task<RiskProjectDto> EditRiskProject(UpdateRiskProjectDto riskProject)
         {
             throw new NotImplementedException();
         }
@@ -47,11 +47,6 @@ namespace CGInnovation.ProjectZen.RisksProjects
         }
 
         public Task<List<StrategyDto>> GetSrategiesListAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<StrategyDto> GetStrategyByIdAsync(Guid id)
         {
             throw new NotImplementedException();
         }

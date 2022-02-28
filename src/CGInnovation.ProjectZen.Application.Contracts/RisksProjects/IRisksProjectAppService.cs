@@ -28,8 +28,8 @@ namespace CGInnovation.ProjectZen.RisksProjects
         #region RiskProject Use Case
         Task<List<RiskProjectDto>> GetRisksInProjectListByProjectIdAsync(Guid id);
         Task<RiskProjectDto> GetSelectedRiskProjectAsync();
-        Task<RiskProjectDto> EditRiskProject(RiskProjectDto riskProject);
-        void CreateRiskProjectAsync(RiskProjectDto riskProject);
+        void CreateRiskProjectAsync(CreateRiskProjectDto riskProject);
+        Task<RiskProjectDto> EditRiskProject(UpdateRiskProjectDto riskProject);
         void SaveRiskProjectAsync(RiskProjectDto riskProject);
 
         #endregion
