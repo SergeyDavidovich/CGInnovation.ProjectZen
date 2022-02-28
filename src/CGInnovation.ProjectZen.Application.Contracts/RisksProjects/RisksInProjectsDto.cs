@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
 
-namespace CGInnovation.ProjectZen.RisksInProjects
+namespace CGInnovation.ProjectZen.RisksProjects
 {
     public class RiskProjectDto : AuditedEntityDto
     {

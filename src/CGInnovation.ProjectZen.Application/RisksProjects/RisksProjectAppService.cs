@@ -1,5 +1,5 @@
 ﻿using CGInnovation.ProjectZen.Projects;
-using CGInnovation.ProjectZen.RisksInProjects;
+using CGInnovation.ProjectZen.RisksProjects;
 using CGInnovation.ProjectZen.Strategies;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CGInnovation.ProjectZen.RisksProjects
 {
-    public class RisksProjectAppService : ProjectZenAppService, IRisksProjectAppService
+    public class RisksProjectAppService : ProjectZenAppService, IRiskProjectAppService
     {
         public void CreateRiskProjectAsync(RiskProjectDto riskProject)
         {

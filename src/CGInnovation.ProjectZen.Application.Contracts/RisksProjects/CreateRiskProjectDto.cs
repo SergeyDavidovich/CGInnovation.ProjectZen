@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace CGInnovation.ProjectZen.RisksInProjects
+namespace CGInnovation.ProjectZen.RisksProjects
 {
-    public class CreateRiskInProjectDto
+    public class CreateRiskProjectDto
     {
         [Required]
         public Guid RiskId { get; private set; }

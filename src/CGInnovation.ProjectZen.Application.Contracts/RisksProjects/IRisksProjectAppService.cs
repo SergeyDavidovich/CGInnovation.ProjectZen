@@ -1,5 +1,5 @@
 ﻿using CGInnovation.ProjectZen.Projects;
-using CGInnovation.ProjectZen.RisksInProjects;
+using CGInnovation.ProjectZen.RisksProjects;
 using CGInnovation.ProjectZen.Strategies;
 
 using System;
@@ -13,7 +13,7 @@ namespace CGInnovation.ProjectZen.RisksProjects
     /// <summary>
     /// This interface reflects Use Cases of Presentation Layer
     /// </summary>
-    public interface IRisksProjectAppService : IApplicationService
+    public interface IRiskProjectAppService : IApplicationService
     {
         #region Strategy Use Cases
         Task<List<StrategyDto>> GetSrategiesListAsync();
@@ -33,7 +33,6 @@ namespace CGInnovation.ProjectZen.RisksProjects
         void SaveRiskProjectAsync(RiskProjectDto riskProject);
 
         #endregion
-
     }
 }
 
