@@ -44,10 +44,11 @@ namespace CGInnovation.ProjectZen.Strategies
                 : await _strategyRepository.CountAsync(
                     author => author.Name.Contains(input.Filter));
 
-            return new PagedResultDto<StrategyDto>(
+            var result = new PagedResultDto<StrategyDto>(
                 totalCount,
                 ObjectMapper.Map<List<Strategy>, List<StrategyDto>>(strategies)
             );
+            return result;
         }
         
         [Authorize(ProjectZenPermissions.Strategies.Create)]

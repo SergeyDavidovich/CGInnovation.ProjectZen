@@ -22,8 +22,8 @@
     "Permission:Strategies.Delete": "Deleting the strategies",
 
     "Permission:RiskProject": "Risks in projects Management",
-    "Permission:RiskProject.Assign": "Assign Risks in Project",
-    "Permission:RiskProject.Remove": "Remove Risks from Project",
+    "Permission:RiskProject.Create": "Assign Risks in Project",
+    "Permission:RiskProject.Delete": "Remove Risks from Project",
     "Permission:RiskProject.Edit": "Edit Risks in Project",
 
     "ProjectZen:00001": "There is already a project with the same name: {name}",

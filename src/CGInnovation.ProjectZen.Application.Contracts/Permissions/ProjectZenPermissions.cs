@@ -30,9 +30,9 @@
         public class RisksProjects
         {
             public const string Default = GroupName + ".RisksProjects";
-            public const string Assign = Default + ".Assign";
+            public const string Create = Default + ".Create";
             public const string Edit = Default + ".Edit";
-            public const string Remove = Default + ".Remove";
+            public const string Delete = Default + ".Delete";
         }
     }
 }

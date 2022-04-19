@@ -7,78 +7,63 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
+using Volo.Abp.ObjectMapping;
 
 namespace CGInnovation.ProjectZen.RisksProjects
 {
     public class RisksProjectAppService : ProjectZenAppService, IRiskProjectAppService
     {
-        private StrategyAppService _strategyAppService;
         private ProjectAppService _projectAppService;
+        private IRiskProjectRepository _riskProjectsRepository;
         public RisksProjectAppService(
-            StrategyAppService strategyAppService, 
-            ProjectAppService projectAppService)
-        {
-            _strategyAppService = strategyAppService;
+            ProjectAppService projectAppService,
+            IRiskProjectRepository  riskProjectsRepository)
+                {
             _projectAppService = projectAppService;
+            _riskProjectsRepository = riskProjectsRepository;
         }
 
-        #region Strategy Use Cases
-        #region Output
-        public async Task<PagedResultDto<StrategyDto>> 
-            GetSrategiesListAsync(GetStrategyListDto input)
+        #region output
+        public async Task<List<RiskProjectDto>> GetListAsync(Guid projectId)
         {
-            return await _strategyAppService.GetListAsync(input);
+            var riskProjects = await _riskProjectsRepository.GetListAsync();
+
+            var listRiskProjectsDto =
+                new List<RiskProjectDto>(
+                ObjectMapper.Map<List<RiskProject>,
+                List<RiskProjectDto>>(riskProjects));
+            return listRiskProjectsDto;
         }
-        public Guid GetSelectedStrategyIdAsync(StrategyDto strategy)
-        {
-            return strategy.Id;
-        }
-        #endregion 
+
+        //public async Task<RiskProjectDto> GetAsync(Guid riskId, Guid projectId)
+        //{
+        //    var riskProject = await _riskProjectsRepository.GetAsync(riskId, projectId);
+        //    return new RiskProjectDto();
+        //}
+
         #endregion
 
-        #region Project Use Cases
-        #region Output
-        public Task<List<ProjectDto>> GetProjectsListByStrategyIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-        public Task<Guid> GetSelectedProjectIdAsync(ProjectDto project)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
-        #endregion
+        #region input
 
-        #region RiskProject Use Case
-        #region Output
-        public Task<RiskProjectDto> GetSelectedRiskProjectAsync()
-        {
-            throw new NotImplementedException();
-        }
-        public Task<List<RiskProjectDto>> GetRisksInProjectListByProjectIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
-        #region Input
-        public Task<RiskProjectDto> EditRiskProject(UpdateRiskProjectDto riskProject)
-        {
-            throw new NotImplementedException();
-        }
-        public void CreateRiskProjectAsync(CreateRiskProjectDto riskProject)
-        {
-            throw new NotImplementedException();
-        }
-        public void SaveRiskProjectAsync(RiskProjectDto riskProject)
+        public Task CreateAsync(CreateRiskProjectDto input)
         {
             throw new NotImplementedException();
         }
 
-        public Task<PagedResultDto<StrategyDto>> GetListAsync(GetStrategyListDto input)
+        public Task DeleteAsync(Guid riskId, Guid projectId)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<RiskProjectDto> UpdateAsync(UpdateRiskProjectDto input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<RiskProjectDto> GetAsync(Guid riskId, Guid projectId)
         {
             throw new NotImplementedException();
         }
         #endregion
-        #endregion
+
     }
 }

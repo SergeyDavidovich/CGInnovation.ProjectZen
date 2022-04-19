@@ -76,7 +76,6 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
             ProjectList = result.Items;
             TotalCount = (int)result.TotalCount;
         }
-
         private async Task OnDataGridReadAsync(DataGridReadDataEventArgs<ProjectDto> e)
         {
             CurrentSorting = e.Columns
@@ -96,12 +95,10 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
             NewProject = new CreateProjectDto();
             CreateProjectModal.Show();
         }
-
         private void CloseCreateProjectModal()
         {
             CreateProjectModal.Hide();
         }
-
         private void OpenEditProjectModal(ProjectDto project)
         {
             EditValidationsRef.ClearAll();

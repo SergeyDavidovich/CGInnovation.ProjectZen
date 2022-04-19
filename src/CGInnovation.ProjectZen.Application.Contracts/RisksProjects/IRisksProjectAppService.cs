@@ -15,33 +15,17 @@ namespace CGInnovation.ProjectZen.RisksProjects
     /// </summary>
     public interface IRiskProjectAppService : IApplicationService
     {
-        //#region Strategy Use Cases
-        //#region Output
-        //Task<List<GetStrategyListDto>> GetSrategiesListAsync();
-        //Task<Guid> GetSelectedStrategyIdAsync(StrategyDto strategy);
-        //#endregion
-        //#endregion
-
-        //#region Project Use Cases 
-        //#region Output
-        //Task<List<ProjectDto>> GetProjectsListByStrategyIdAsync(Guid id);
-        //Task<Guid> GetSelectedProjectIdAsync(ProjectDto project);
-        //#endregion
-        //#endregion
-
-        #region RiskProject Use Case
-
         #region Output
-        Task<List<RiskProjectDto>> GetRisksInProjectListByProjectIdAsync(Guid id);
-        Task<RiskProjectDto> GetSelectedRiskProjectAsync();
+
+        Task<List<RiskProjectDto>> GetListAsync(Guid projectId);
+        Task<RiskProjectDto> GetAsync(Guid riskId, Guid projectId);
+        
         #endregion
 
         #region Input
-        void CreateRiskProjectAsync(CreateRiskProjectDto riskProject);
-        Task<RiskProjectDto> EditRiskProject(UpdateRiskProjectDto riskProject);
-        void SaveRiskProjectAsync(RiskProjectDto riskProject);
-        #endregion
-
+        Task CreateAsync(CreateRiskProjectDto input);
+        Task<RiskProjectDto> UpdateAsync(UpdateRiskProjectDto input);
+        Task DeleteAsync(Guid riskId, Guid projectId);
         #endregion
     }
 }

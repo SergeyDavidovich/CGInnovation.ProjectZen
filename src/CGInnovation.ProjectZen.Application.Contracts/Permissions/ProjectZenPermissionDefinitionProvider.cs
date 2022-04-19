@@ -45,9 +45,9 @@ namespace CGInnovation.ProjectZen.Permissions
             var riskProjectPermission = projectZenGroup.AddPermission(
                 ProjectZenPermissions.RisksProjects.Default, L("Permission:RiskProject"));
             riskProjectPermission.AddChild(
-                ProjectZenPermissions.RisksProjects.Assign, L("Permission:RiskProject.Assign"));
+                ProjectZenPermissions.RisksProjects.Create, L("Permission:RiskProject.Create"));
             riskProjectPermission.AddChild(
-                ProjectZenPermissions.RisksProjects.Remove, L("Permission:RiskProject.Remove"));
+                ProjectZenPermissions.RisksProjects.Delete, L("Permission:RiskProject.Delete"));
             riskProjectPermission.AddChild(
                 ProjectZenPermissions.RisksProjects.Edit, L("Permission:RiskProject.Edit"));
         }
