@@ -1,5 +1,6 @@
 ﻿@page "/riskmonitor"
 
+@using Blazorise.Components
 @using CGInnovation.ProjectZen.Strategies
 @using CGInnovation.ProjectZen.Projects
 @using CGInnovation.ProjectZen.Risks
@@ -8,6 +9,8 @@
 @using Volo.Abp.AspNetCore.Components.Web
 @using CGInnovation.ProjectZen.Permissions
 
+@attribute [Authorize(ProjectZenPermissions.RisksProjects.Default)]
+
 @inherits ProjectZenComponentBase
 @inject IStrategyAppService StrategyAppService
 @inject IProjectAppService ProjectAppService
@@ -15,6 +18,32 @@
 @inject IRiskProjectAppService RisksProjectAppService
 @inject AbpBlazorMessageLocalizerHelper<ProjectZenResource> LH
 
+
 <h3>Risk monitor</h3>
+    <div class="strategy">
+        <SelectList TItem="StrategyLookupDto"
+                    TValue="Guid"
+                    Data="@StrategyList"
+                    TextField="@((item)=>item.Name)"
+                    ValueField="@((item)=>item.Id)"
+                    SelectedValue="@selectedListValue"
+                    DefaultItemText=""
+                    Color="Color.Primary"
+                    MaxMenuHeight="200px">
+        </SelectList>
+    </div>
 
-
+<style>
+    .wrapper{
+        display:grid;
+        background-color:aliceblue;
+        width:auto;
+        margin:auto;
+        height:100vh;
+    }
+    .strategy {
+        background-color: blue;
+        padding: 2px;
+        width: fit-content;
+    }
+</style>
