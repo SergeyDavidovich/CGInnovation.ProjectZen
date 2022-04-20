@@ -10,7 +10,7 @@ namespace CGInnovation.ProjectZen.Blazor
         public static async Task Main(string[] args)
         {
             // Register Syncfusion license
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTM3MDQ5QDMxMzkyZTMzMmUzMGRwSnVQcnFwVENNWWdGU2JralJ2aXlHM1FMcmFMVzAvWlZsdUl2UG9HaHM9");
+            //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NTM3MDQ5QDMxMzkyZTMzMmUzMGRwSnVQcnFwVENNWWdGU2JralJ2aXlHM1FMcmFMVzAvWlZsdUl2UG9HaHM9");
 
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
