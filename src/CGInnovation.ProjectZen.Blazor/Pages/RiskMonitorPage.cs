@@ -7,20 +7,11 @@ using System.Threading.Tasks;
 
 namespace CGInnovation.ProjectZen.Blazor.Pages
 {
-    public class MySelectModel
-    {
-        public Guid MyValueField { get; set; }
-        public string MyTextField { get; set; }
-    }
-
     public partial class RiskMonitorPage
     {
         #region Declarations
         private IReadOnlyList<StrategyLookupDto> StrategyList = Array.Empty<StrategyLookupDto>();
-       private Guid selectedListValue { get; set; } 
-
-        
-
+        private Guid SelectedStrategyListValue { get; set; } = Guid.Empty;
         private bool CanCreateRiskProject { get; set; }
         private bool CanEditRiskProject { get; set; }
         private bool CanDeleteRiskProject { get; set; }
@@ -34,7 +25,7 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
 #if DEBUG
             await Task.Delay(0);
 #endif
-            //await SetPermissionsAsync();
+            await SetPermissionsAsync();
             StrategyList = (await ProjectAppService.GetStrategyLookupAsync()).Items;
 
             await base.OnInitializedAsync();
@@ -49,6 +40,12 @@ namespace CGInnovation.ProjectZen.Blazor.Pages
 
             CanDeleteRiskProject = await AuthorizationService
                 .IsGrantedAsync(ProjectZenPermissions.RisksProjects.Delete);
+        }
+        
+        void MyListValueChangedHandler(Guid newValue)
+        {
+            SelectedStrategyListValue = newValue;
+            StateHasChanged();
         }
     }
 }

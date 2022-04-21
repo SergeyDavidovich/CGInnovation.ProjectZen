@@ -20,27 +20,30 @@
 
 
 <h3>Risk monitor</h3>
-    <div class="strategy">
-        <SelectList TItem="StrategyLookupDto"
-                    TValue="Guid"
-                    Data="@StrategyList"
-                    TextField="@((item)=>item.Name)"
-                    ValueField="@((item)=>item.Id)"
-                    SelectedValue="@selectedListValue"
-                    DefaultItemText=""
-                    Color="Color.Primary"
-                    MaxMenuHeight="200px">
-        </SelectList>
-    </div>
+<div class="strategy">
+    <SelectList TItem="StrategyLookupDto"
+                TValue="Guid"
+                Data="@StrategyList"
+                TextField="@((item)=>item.Name)"
+                ValueField="@((item)=>item.Id)"
+                SelectedValue="@SelectedStrategyListValue"
+                DefaultItemText="Select strategy"
+                SelectedValueChanged="@MyListValueChangedHandler"
+                DefaultItemDisabled
+                Color="Color.Primary"
+                MaxMenuHeight="200px">
+    </SelectList>
+</div>
 
 <style>
-    .wrapper{
-        display:grid;
-        background-color:aliceblue;
-        width:auto;
-        margin:auto;
-        height:100vh;
+    .wrapper {
+        display: grid;
+        background-color: aliceblue;
+        width: auto;
+        margin: auto;
+        height: 100vh;
     }
+
     .strategy {
         background-color: blue;
         padding: 2px;

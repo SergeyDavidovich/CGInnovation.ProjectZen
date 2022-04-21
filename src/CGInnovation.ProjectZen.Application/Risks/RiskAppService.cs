@@ -1,4 +1,5 @@
 ﻿using CGInnovation.ProjectZen.Permissions;
+using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ using Volo.Abp.Domain.Repositories;
 
 namespace CGInnovation.ProjectZen.Risks
 {
+    [Authorize(ProjectZenPermissions.Risks.Default)]
+
     public class RiskAppService: CrudAppService<
         Risk, //The Risk entity
         RiskDto, //Used to show risks
