@@ -13,9 +13,11 @@ namespace CGInnovation.ProjectZen.Projects
     [Authorize(ProjectZenPermissions.Projects.Default)]
     public class ProjectAppService : ProjectZenAppService, IProjectAppService
     {
+        #region declarations
         private readonly IProjectRepository _projectRepository;
         private readonly ProjectManager _projectManager;
         private readonly IStrategyRepository _strategyRepository;
+        #endregion
         public ProjectAppService(
             IProjectRepository projectRepository,
             IStrategyRepository strategyRepository,
@@ -25,6 +27,8 @@ namespace CGInnovation.ProjectZen.Projects
             _strategyRepository = strategyRepository;
             _projectManager = projectManager;
         }
+
+        #region output
         public async Task<ProjectDto> GetAsync(Guid id)
         {
             var project = await _projectRepository.GetAsync(id);
@@ -95,7 +99,9 @@ namespace CGInnovation.ProjectZen.Projects
 
             return nameList;
         }
+        #endregion
 
+        #region input
         [Authorize(ProjectZenPermissions.Projects.Create)]
         public async Task<ProjectDto> CreateAsync(CreateProjectDto input)
         {
@@ -128,6 +134,6 @@ namespace CGInnovation.ProjectZen.Projects
         {
             await _projectRepository.DeleteAsync(id);
         }
-
+        #endregion
     }
 }
